@@ -2,5 +2,5 @@
   "name": "E-Phoenix Hotel",
   "description": "Luxury 5-star hotel in GRA Ilorin, Kwara State offering executive rooms, fine dining, event halls, and world-class hospitality.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

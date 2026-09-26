@@ -1,20 +1,45 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# E-Phoenix Hotel & Suites
 
-# Run and deploy your AI Studio app
+A modern web application for E-Phoenix Hotel & Suites in Ilorin, Kwara State, featuring executive accommodations, fine dining, event halls, photo galleries, virtual tours, and room reservations.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/83875670-c4ce-4d23-a977-8353d9aaf22d
+- **Multi-Branch Support**: Seamless exploration and switching between Main Branch (GRA), Annex 1 (Fate), and Annex 2 (Golf Course Road).
+- **Direct Reservations**: Booking inquiries routed through instant WhatsApp integration and direct contact channels.
+- **Interactive Modals**: Room details, dining menus, virtual video tours, and high-resolution photo lightboxes.
+- **Local SEO & Geo Optimization**: Branch-specific Schema.org JSON-LD structured data and geolocation coordinates.
 
-## Run Locally
+## Development
 
-**Prerequisites:**  Node.js
+### Prerequisites
 
+- [Node.js](https://nodejs.org/) (v18+)
+- [pnpm](https://pnpm.io/) (v9+)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Installation
+
+```bash
+pnpm install
+```
+
+### Run Locally
+
+```bash
+pnpm dev
+```
+
+The application will be accessible at `http://localhost:3000`.
+
+### Build for Production
+
+```bash
+pnpm build
+```
+
+## Deployment to Vercel
+
+This repository includes a preconfigured `vercel.json` optimized for `pnpm` and Vite SPA routing:
+
+1. Import the repository in [Vercel](https://vercel.com/).
+2. Vercel automatically detects `pnpm` and the settings from `vercel.json`.
+3. Deploy!
