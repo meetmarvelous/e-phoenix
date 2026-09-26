@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:geo="http://www.google.com/geo/schemas/sitemap/1.0">
+  <url>
+    <loc>https://ephoenixhotel.ng/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>E-Phoenix Hotel Main GRA Flagship Luxury Suites Ilorin</image:title>
+      <image:caption>Premier 5-star hotel in GRA Ilorin Kwara State with Olympic swimming pool and 1,000-seat banquet hall.</image:caption>
+      <image:geo_location>Ilorin, Kwara State, Nigeria</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ephoenixhotel.ng/annex1</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>E-Phoenix Hotel Annex 1 Executive Boutique Suites Fate Ilorin</image:title>
+      <image:caption>Soundproof executive business suites with fiber Wi-Fi 6, smart boardrooms, and rooftop pool in Fate Ilorin.</image:caption>
+      <image:geo_location>Fate, Ilorin, Kwara State, Nigeria</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ephoenixhotel.ng/annex2</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>E-Phoenix Hotel Annex 2 Garden and Leisure Resort Golf Course Road Ilorin</image:title>
+      <image:caption>Tropical garden resort with lagoon pool, open-air charcoal barbecue, and family chalets in Ilorin.</image:caption>
+      <image:geo_location>Golf Course Road, Ilorin, Kwara State, Nigeria</image:geo_location>
+    </image:image>
+  </url>
+</urlset>

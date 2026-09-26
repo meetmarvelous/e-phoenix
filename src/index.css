@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-cinzel: 'Cinzel', serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    background-color: #111111;
+    color: #e5e5e5;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-cinzel);
+  }
+
+  .font-playfair {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Luxury gold gradients and accents matching E-Phoenix Hotel */
+.gold-text {
+  color: #c5a880;
+}
+
+.gold-bg {
+  background-color: #c5a880;
+}
+
+.gold-border {
+  border-color: #c5a880;
+}
+
+.bg-pattern-stars {
+  background-image: radial-gradient(rgba(197, 168, 128, 0.25) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Custom delicate arch for hero */
+.arch-frame {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+

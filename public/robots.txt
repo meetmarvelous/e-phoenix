@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /annex1
+Allow: /annex2
+
+# Host and Sitemaps
+Sitemap: https://ephoenixhotel.ng/sitemap.xml
