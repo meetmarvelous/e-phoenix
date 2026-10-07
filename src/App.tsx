@@ -18,7 +18,8 @@ import { LocalGeoGuideModal } from './components/LocalGeoGuideModal';
 import { RoomRate, VideoTour, GalleryImage, BranchId } from './types';
 import { HOTEL_BRANCHES, getBranchById, getBranchByPath, DEFAULT_BRANCH_ID } from './data/hotelData';
 import { updateDocumentSeoAndGeo } from './utils/seo';
-import { CheckCircle2, X } from 'lucide-react';
+import { CheckCircle2, X, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export default function App() {
   // Determine branch based on initial URL path
@@ -139,19 +140,42 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#111111] text-[#e5e5e5] selection:bg-[#c5a880] selection:text-black">
-      {/* Branch Switch Toast Banner */}
-      {branchSwitchToast && (
-        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-[#251f18] text-white px-5 py-3 rounded-full border border-[#c5a880] shadow-2xl flex items-center gap-3 animate-in fade-in slide-in-from-top-3 duration-200 max-w-lg text-center">
-          <CheckCircle2 className="w-4 h-4 text-[#c5a880] shrink-0" />
-          <span className="text-xs sm:text-sm font-medium">{branchSwitchToast}</span>
-          <button
-            onClick={() => setBranchSwitchToast(null)}
-            className="text-neutral-400 hover:text-white p-0.5 ml-1 cursor-pointer"
+      {/* Branch Switch Toast Notification */}
+      <AnimatePresence>
+        {branchSwitchToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed bottom-6 left-4 right-4 sm:left-auto sm:right-6 z-50 sm:max-w-md bg-[#191511]/95 backdrop-blur-md text-white p-3.5 sm:p-4 rounded-xl border border-[#c5a880]/60 shadow-2xl shadow-black/80 flex items-start gap-3"
+            role="status"
+            aria-live="polite"
           >
-            <X className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      )}
+            <div className="w-8 h-8 rounded-full bg-[#c5a880]/15 border border-[#c5a880]/40 flex items-center justify-center shrink-0 mt-0.5 text-[#c5a880]">
+              <CheckCircle2 className="w-4 h-4" />
+            </div>
+
+            <div className="flex-1 min-w-0 pr-1">
+              <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] text-[#c5a880] uppercase font-cinzel mb-0.5">
+                <Sparkles className="w-3 h-3 shrink-0" />
+                <span>LOCATION UPDATED</span>
+              </div>
+              <p className="text-xs sm:text-sm text-neutral-200 font-medium leading-snug break-words">
+                {branchSwitchToast}
+              </p>
+            </div>
+
+            <button
+              onClick={() => setBranchSwitchToast(null)}
+              className="text-neutral-400 hover:text-white p-1 rounded-sm hover:bg-white/10 transition-colors cursor-pointer shrink-0 mt-0.5"
+              aria-label="Dismiss notification"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Fixed Luxury Navigation with Branch Switcher Dropdown */}
       <Navbar

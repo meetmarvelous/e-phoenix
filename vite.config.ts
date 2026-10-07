@@ -13,6 +13,10 @@ export default defineConfig(() => {
       alias: {
         '@': path.resolve(__dirname, '.'),
       },
+      dedupe: ['react', 'react-dom'],
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'motion/react', 'lucide-react'],
     },
     server: {
       hmr: process.env.DISABLE_HMR !== 'true',

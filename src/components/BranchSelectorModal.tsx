@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { X, MapPin, CheckCircle, Sparkles, Building2, Briefcase, Trees, ArrowRight, Compass, ShieldCheck } from 'lucide-react';
+import { X, MapPin, CheckCircle, Sparkles, Building2, Briefcase, Trees, ArrowRight, Compass, ShieldCheck, Crown } from 'lucide-react';
 import { BRANCH_LIST } from '../data/hotelData';
 import { BranchId, HotelBranch } from '../types';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface BranchSelectorModalProps {
   isOpen: boolean;
@@ -97,33 +98,36 @@ export const BranchSelectorModal: React.FC<BranchSelectorModalProps> = ({
             </button>
             <button
               onClick={() => setFilterPreference('grand')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer inline-flex items-center ${
                 filterPreference === 'grand'
                   ? 'bg-[#c5a880] text-black shadow-xs font-bold'
                   : 'bg-[#25201b] text-neutral-400 hover:text-white'
               }`}
             >
-              👑 Flagship & Grand Events (Main)
+              <Crown className="w-3.5 h-3.5 mr-1.5 shrink-0 text-current" />
+              <span>Flagship & Grand Events (Main)</span>
             </button>
             <button
               onClick={() => setFilterPreference('business')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer inline-flex items-center ${
                 filterPreference === 'business'
                   ? 'bg-[#c5a880] text-black shadow-xs font-bold'
                   : 'bg-[#25201b] text-neutral-400 hover:text-white'
               }`}
             >
-              💼 Corporate & Tech (Annex 1)
+              <Briefcase className="w-3.5 h-3.5 mr-1.5 shrink-0 text-current" />
+              <span>Corporate & Tech (Annex 1)</span>
             </button>
             <button
               onClick={() => setFilterPreference('leisure')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer inline-flex items-center ${
                 filterPreference === 'leisure'
                   ? 'bg-[#c5a880] text-black shadow-xs font-bold'
                   : 'bg-[#25201b] text-neutral-400 hover:text-white'
               }`}
             >
-              🌿 Garden & Poolside Chill (Annex 2)
+              <Trees className="w-3.5 h-3.5 mr-1.5 shrink-0 text-current" />
+              <span>Garden & Poolside Chill (Annex 2)</span>
             </button>
           </div>
         </div>

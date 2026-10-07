@@ -1,6 +1,7 @@
 import React from 'react';
 import { RoomRate, HotelBranch } from '../types';
 import { Coffee, Wifi, Clock, ArrowRight, MapPin, Sparkles } from 'lucide-react';
+import { motion } from 'motion/react';
 
 interface RatesSectionProps {
   currentBranch: HotelBranch;
@@ -18,16 +19,22 @@ export const RatesSection: React.FC<RatesSectionProps> = ({
   };
 
   return (
-    <section id="rates" className="bg-[#443f3b] text-neutral-100 py-20 px-4 sm:px-6 lg:px-8 border-t border-[#544e49]">
+    <section id="rates" className="bg-[#443f3b] text-neutral-100 py-20 px-4 sm:px-6 lg:px-8 border-t border-[#544e49] overflow-hidden">
       <div className="max-w-5xl mx-auto">
         {/* Section Heading with Branch Context */}
-        <div className="text-center mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-8"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2c2724] border border-[#c5a880]/40 text-[#c5a880] text-xs font-semibold tracking-wider mb-3">
             <MapPin className="w-3.5 h-3.5 text-[#c5a880]" />
             <span>Rates for: {currentBranch.name}</span>
             <button
               onClick={onOpenBranchModal}
-              className="text-white hover:underline text-[11px] ml-1 flex items-center gap-1"
+              className="text-white hover:underline text-[11px] ml-1 flex items-center gap-1 cursor-pointer"
             >
               <span>[Change Branch]</span>
             </button>
@@ -39,10 +46,16 @@ export const RatesSection: React.FC<RatesSectionProps> = ({
           <p className="text-xs sm:text-sm text-[#d6c4b0] tracking-[0.2em] uppercase mt-2 font-cinzel">
             Guaranteed Best Direct Booking Rates • {currentBranch.shortName}
           </p>
-        </div>
+        </motion.div>
 
         {/* Pricing Table Card */}
-        <div className="bg-[#37322e] rounded-xs shadow-2xl overflow-hidden border border-[#524b45] mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="bg-[#37322e] rounded-xs shadow-2xl overflow-hidden border border-[#524b45] mb-12"
+        >
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
@@ -107,10 +120,16 @@ export const RatesSection: React.FC<RatesSectionProps> = ({
               </tbody>
             </table>
           </div>
-        </div>
+        </motion.div>
 
         {/* Quick Branch Switching Banner under rates */}
-        <div className="mb-10 p-4 rounded-xs bg-[#2e2925] border border-[#484039] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mb-10 p-4 rounded-xs bg-[#2e2925] border border-[#484039] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left"
+        >
           <div>
             <span className="text-xs font-bold text-[#c5a880] uppercase tracking-wider block font-cinzel">
               Comparing other E-Phoenix branches?
@@ -126,10 +145,16 @@ export const RatesSection: React.FC<RatesSectionProps> = ({
             <Sparkles className="w-3.5 h-3.5 text-[#c5a880]" />
             <span>Compare Branch Rates</span>
           </button>
-        </div>
+        </motion.div>
 
         {/* Inclusions & Terms Box */}
-        <div className="bg-[#fcfaf7] text-neutral-800 rounded-sm p-6 sm:p-10 shadow-lg border border-[#e3d8cc] text-center max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="bg-[#fcfaf7] text-neutral-800 rounded-sm p-6 sm:p-10 shadow-lg border border-[#e3d8cc] text-center max-w-3xl mx-auto"
+        >
           {/* Top Inclusions */}
           <div className="mb-6">
             <h3 className="text-sm sm:text-base font-bold tracking-[0.25em] text-[#937146] uppercase font-cinzel mb-2">
@@ -176,7 +201,7 @@ export const RatesSection: React.FC<RatesSectionProps> = ({
               Room will be charged for 1 night for NO SHOW (Guaranteed Reservation).
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

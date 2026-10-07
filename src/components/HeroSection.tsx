@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Star, Calendar, Minus, Plus, MapPin, Sparkles, ArrowRight } from 'lucide-react';
 import { HotelBranch } from '../types';
+import { motion } from 'motion/react';
 
 interface HeroSectionProps {
   currentBranch: HotelBranch;
@@ -64,7 +65,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Center Arch Line Motif from the screenshot */}
       <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center mt-4">
         {/* Branch Switcher Callout Banner */}
-        <div className="mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: -14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-4"
+        >
           <button
             id="hero-branch-indicator-btn"
             onClick={onOpenBranchModal}
@@ -76,10 +82,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               Switch Branch ({currentBranch.path})
             </span>
           </button>
-        </div>
+        </motion.div>
 
         {/* Curved Gold Arch Header Frame */}
-        <div className="relative pt-6 sm:pt-10 px-6 sm:px-14 pb-4 w-full flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.12 }}
+          className="relative pt-6 sm:pt-10 px-6 sm:px-14 pb-4 w-full flex flex-col items-center"
+        >
           {/* SVG Arched Accent line */}
           <div className="absolute top-0 inset-x-0 mx-auto w-[280px] sm:w-[480px] md:w-[600px] h-28 pointer-events-none opacity-80">
             <svg viewBox="0 0 600 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -147,10 +158,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span>Explore All 3 Branches</span>
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Floating White Booking Bar Card */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.28 }}
           id="booking-bar-card"
           className="w-full max-w-4xl bg-white text-neutral-800 rounded-sm shadow-2xl p-4 sm:p-5 border border-neutral-200 mt-1"
         >
@@ -271,7 +285,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </button>
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

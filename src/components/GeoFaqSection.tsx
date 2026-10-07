@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HotelBranch, BranchId } from '../types';
 import { BRANCH_LIST, HOTEL_FAQS } from '../data/hotelData';
 import { MapPin, Navigation, Compass, Plane, Building, ChevronDown, ChevronUp, Globe, Sparkles, ExternalLink } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface GeoFaqSectionProps {
   currentBranch: HotelBranch;
@@ -21,10 +22,16 @@ export const GeoFaqSection: React.FC<GeoFaqSectionProps> = ({
   };
 
   return (
-    <section id="geo-and-faqs" className="bg-[#15120f] py-20 px-4 sm:px-6 lg:px-8 border-t border-[#31271d] relative">
+    <section id="geo-and-faqs" className="bg-[#15120f] py-20 px-4 sm:px-6 lg:px-8 border-t border-[#31271d] relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c5a880]/10 border border-[#c5a880]/30 text-[#c5a880] text-xs font-bold tracking-[0.25em] uppercase mb-4 font-cinzel">
             <Globe className="w-3.5 h-3.5" />
             <span>GEO-LOCATION & GUEST INTELLIGENCE</span>
@@ -37,16 +44,20 @@ export const GeoFaqSection: React.FC<GeoFaqSectionProps> = ({
           <p className="text-sm text-neutral-400 font-light leading-relaxed">
             Strategically positioned across Ilorin's most prestigious districts. Seamless access to Ilorin International Airport, Kwara State Government House, and premier commercial hubs.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3 Branch Geo Cards Matrix */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {BRANCH_LIST.map((branch) => {
+          {BRANCH_LIST.map((branch, index) => {
             const isCurrent = branch.id === currentBranch.id;
 
             return (
-              <div
+              <motion.div
                 key={branch.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
                 className={`rounded-sm p-6 flex flex-col justify-between transition-all duration-300 ${
                   isCurrent
                     ? 'bg-[#221c16] border-2 border-[#c5a880] shadow-xl relative'
@@ -120,8 +131,7 @@ export const GeoFaqSection: React.FC<GeoFaqSectionProps> = ({
                     className="w-full py-2 bg-[#2d251d] hover:bg-[#3d3227] text-white text-xs font-semibold rounded-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <Navigation className="w-3.5 h-3.5 text-[#c5a880]" />
-                    <span>Get Directions</span>
-                    <ExternalLink className="w-3 h-3 opacity-60 ml-0.5" />
+                    <span>View on Google Maps</span>
                   </button>
 
                   {!isCurrent && (
@@ -133,13 +143,19 @@ export const GeoFaqSection: React.FC<GeoFaqSectionProps> = ({
                     </button>
                   )}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* FAQ Section */}
-        <div className="bg-[#1b1713] rounded-sm p-6 sm:p-10 border border-[#3b3024]">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-[#1b1713] rounded-sm p-6 sm:p-10 border border-[#3b3024]"
+        >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-neutral-800">
             <div>
               <div className="text-xs font-cinzel text-[#c5a880] uppercase tracking-widest mb-1">
@@ -177,15 +193,25 @@ export const GeoFaqSection: React.FC<GeoFaqSectionProps> = ({
                   )}
                 </button>
 
-                {openFaq === index && (
-                  <div className="px-4 sm:px-5 pb-5 text-xs sm:text-sm text-neutral-400 font-light leading-relaxed border-t border-neutral-800/50 pt-3">
-                    {faq.answer}
-                  </div>
-                )}
+                <AnimatePresence>
+                  {openFaq === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-4 sm:px-5 pb-5 text-xs sm:text-sm text-neutral-400 font-light leading-relaxed border-t border-neutral-800/50 pt-3">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Star, Utensils, Waves, Building2, Sparkles, Users, Shirt, Wifi, Coffee } from 'lucide-react';
 import { HotelBranch } from '../types';
+import { motion } from 'motion/react';
 
 interface AboutSectionProps {
   currentBranch: HotelBranch;
@@ -31,12 +32,18 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentBranch }) => 
   };
 
   return (
-    <section id="about" className="bg-[#fbf9f6] text-[#222222] py-20 px-4 sm:px-6 lg:px-8">
+    <section id="about" className="bg-[#fbf9f6] text-[#222222] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Top Centered Header with Flanking Arched Photos */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
           {/* Left Arched Image */}
-          <div className="hidden lg:block lg:col-span-3">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden lg:block lg:col-span-3"
+          >
             <div className="relative overflow-hidden rounded-t-[140px] rounded-b-2xl shadow-xl aspect-[3/4] border-4 border-white bg-neutral-200">
               <img
                 src={currentBranch.leftArchImage}
@@ -46,10 +53,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentBranch }) => 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </div>
-          </div>
+          </motion.div>
 
           {/* Central Welcome Text */}
-          <div className="lg:col-span-6 text-center px-2 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 text-center px-2 sm:px-6"
+          >
             <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-[#9e7d52] uppercase block mb-3 font-cinzel">
               WELCOME TO {currentBranch.name.toUpperCase()}
             </span>
@@ -86,10 +99,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentBranch }) => 
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Arched Image */}
-          <div className="hidden lg:block lg:col-span-3">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden lg:block lg:col-span-3"
+          >
             <div className="relative overflow-hidden rounded-t-[140px] rounded-b-2xl shadow-xl aspect-[3/4] border-4 border-white bg-neutral-200">
               <img
                 src={currentBranch.rightArchImage}
@@ -99,16 +118,21 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentBranch }) => 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* 6 Amenity Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {currentBranch.amenities.map((amenity) => (
-            <div
+          {currentBranch.amenities.map((amenity, index) => (
+            <motion.div
               key={amenity.id}
               id={`amenity-card-${amenity.id}`}
-              className="bg-white border border-[#ece6de] rounded-sm p-6 shadow-sm hover:shadow-md transition-all duration-200 flex items-start gap-4 group"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="bg-white border border-[#ece6de] rounded-sm p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 group"
             >
               <div className="p-3 bg-[#f5efe6] rounded-xs shrink-0 group-hover:bg-[#eadecc] transition-colors">
                 {getAmenityIcon(amenity.iconName)}
@@ -121,7 +145,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentBranch }) => 
                   {amenity.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

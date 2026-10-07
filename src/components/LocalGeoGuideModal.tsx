@@ -278,8 +278,9 @@ export const LocalGeoGuideModal: React.FC<LocalGeoGuideModalProps> = ({
 
         {/* Modal Footer */}
         <div className="p-4 bg-[#12100d] border-t border-[#31271d] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-400">
-          <span>
-            📍 All locations: Ilorin, Kwara State, Nigeria (Timezone: GMT+1 WAT)
+          <span className="inline-flex items-center gap-1.5">
+            <MapPin className="w-3.5 h-3.5 text-[#c5a880] shrink-0" />
+            <span>All locations: Ilorin, Kwara State, Nigeria (Timezone: GMT+1 WAT)</span>
           </span>
           <button
             onClick={onClose}

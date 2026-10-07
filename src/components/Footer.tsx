@@ -67,8 +67,9 @@ export const Footer: React.FC<FooterProps> = ({
               <span className="text-xs font-medium text-[#7d674f] tracking-wider uppercase">
                 {currentBranch.locationName}
               </span>
-              <span className="text-[11px] font-mono text-[#8a7259]">
-                📍 {currentBranch.geo.latitude.toFixed(4)}°N, {currentBranch.geo.longitude.toFixed(4)}°E ({currentBranch.geo.geoRegion})
+              <span className="text-[11px] font-mono text-[#8a7259] inline-flex items-center">
+                <MapPin className="w-3.5 h-3.5 inline mr-1 text-[#8a7259] shrink-0" />
+                <span>{currentBranch.geo.latitude.toFixed(4)}°N, {currentBranch.geo.longitude.toFixed(4)}°E ({currentBranch.geo.geoRegion})</span>
               </span>
               {onOpenGeoGuide && (
                 <button

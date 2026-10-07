@@ -2,6 +2,7 @@ import React from 'react';
 import { PhoenixLogo } from './PhoenixLogo';
 import { MapPin, Navigation, Phone, Sparkles } from 'lucide-react';
 import { HotelBranch } from '../types';
+import { motion } from 'motion/react';
 
 interface FacilitiesSectionProps {
   currentBranch: HotelBranch;
@@ -17,24 +18,34 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
   };
 
   return (
-    <section id="facilities" className="bg-[#fcfaf7] py-20 px-4 sm:px-6 lg:px-8 border-t border-neutral-200">
+    <section id="facilities" className="bg-[#fcfaf7] py-20 px-4 sm:px-6 lg:px-8 border-t border-neutral-200 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         {/* Section Heading */}
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <h2 className="font-playfair text-3xl sm:text-4xl text-neutral-900 font-normal tracking-wide">
-            Our Facilites & Location
+            Our Facilities & Location
           </h2>
           <p className="text-xs sm:text-sm text-[#8f7147] tracking-[0.2em] uppercase font-cinzel mt-2">
             {currentBranch.name}
           </p>
           <div className="w-12 h-0.5 bg-[#c5a880] mx-auto mt-3" />
-        </div>
+        </motion.div>
 
         {/* Two Side-by-Side Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {/* Left Card: White Card with Logo & Branch Tag */}
-          <div
+          <motion.div
             id="facilities-logo-card"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="bg-white rounded-md p-8 sm:p-12 shadow-lg border border-neutral-200/80 flex flex-col items-center justify-center min-h-[260px] text-center"
           >
             <PhoenixLogo size="xl" showSubtitle={true} variant="white-bg" />
@@ -44,11 +55,15 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
             <p className="text-xs text-neutral-500 tracking-wider mt-3 max-w-xs font-light">
               {currentBranch.experienceDescription}
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Card: Dark Card with Location Pin & Exact Branch Address */}
-          <div
+          <motion.div
             id="facilities-location-card"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="bg-[#141414] text-white rounded-md p-8 sm:p-12 shadow-xl border border-neutral-800 flex flex-col items-center justify-center min-h-[260px] text-center relative group"
           >
             {/* Gold Map Pin */}
@@ -93,7 +108,7 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
                 <span>Other Branches</span>
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
