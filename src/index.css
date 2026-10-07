@@ -9,8 +9,10 @@
   
   body {
     font-family: var(--font-sans);
-    background-color: #111111;
-    color: #e5e5e5;
+    background-color: #FAF8FD;
+    color: #1F1929;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, .font-display {
@@ -22,27 +24,34 @@
   }
 }
 
-/* Luxury gold gradients and accents matching E-Phoenix Hotel */
-.gold-text {
-  color: #c5a880;
+/* Luxury E-Phoenix Theme Tokens */
+.purple-royal {
+  color: #4E1E7A;
 }
 
-.gold-bg {
-  background-color: #c5a880;
+.bg-purple-royal {
+  background-color: #4E1E7A;
 }
 
-.gold-border {
-  border-color: #c5a880;
+.gold-luxury {
+  color: #C49B55;
 }
 
-.bg-pattern-stars {
-  background-image: radial-gradient(rgba(197, 168, 128, 0.25) 1px, transparent 1px);
-  background-size: 28px 28px;
+.border-gold-luxury {
+  border-color: #C49B55;
 }
 
-/* Custom delicate arch for hero */
-.arch-frame {
-  border-top-left-radius: 9999px;
-  border-top-right-radius: 9999px;
+/* Subtle luxury card shadows and gradients */
+.luxury-card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(78, 30, 122, 0.06), 0 2px 6px -1px rgba(78, 30, 122, 0.04);
+}
+
+.luxury-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -4px rgba(78, 30, 122, 0.12), 0 4px 12px -2px rgba(78, 30, 122, 0.06);
 }
 

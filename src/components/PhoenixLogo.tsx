@@ -1,86 +1,59 @@
 import React from 'react';
 
 interface PhoenixLogoProps {
-  variant?: 'light' | 'dark' | 'gold' | 'white-bg';
+  variant?: 'light' | 'dark' | 'purple' | 'gold' | 'white-bg';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   showSubtitle?: boolean;
   className?: string;
+  horizontal?: boolean;
 }
 
 export const PhoenixLogo: React.FC<PhoenixLogoProps> = ({
-  variant = 'gold',
+  variant = 'purple',
   size = 'md',
   showSubtitle = true,
   className = '',
+  horizontal = true,
 }) => {
   const iconSizes = {
-    sm: 'w-7 h-7',
-    md: 'w-10 h-10',
-    lg: 'w-14 h-14',
-    xl: 'w-20 h-20',
+    sm: 'w-8 h-8 sm:w-9 sm:h-9',
+    md: 'w-11 h-11 sm:w-12 sm:h-12',
+    lg: 'w-14 h-14 sm:w-16 sm:h-16',
+    xl: 'w-20 h-20 sm:w-24 sm:h-24',
   };
 
   const textSizes = {
-    sm: { title: 'text-xs tracking-[0.2em]', sub: 'text-[9px] tracking-[0.25em]' },
-    md: { title: 'text-sm sm:text-base tracking-[0.22em]', sub: 'text-[10px] tracking-[0.3em]' },
-    lg: { title: 'text-xl tracking-[0.25em]', sub: 'text-xs tracking-[0.35em]' },
-    xl: { title: 'text-2xl tracking-[0.3em]', sub: 'text-sm tracking-[0.4em]' },
+    sm: { title: 'text-xs sm:text-sm tracking-[0.16em]', sub: 'text-[9px] sm:text-[10px] tracking-[0.22em]' },
+    md: { title: 'text-sm sm:text-base tracking-[0.18em]', sub: 'text-[10px] sm:text-[11px] tracking-[0.25em]' },
+    lg: { title: 'text-lg sm:text-xl tracking-[0.2em]', sub: 'text-xs tracking-[0.28em]' },
+    xl: { title: 'text-2xl sm:text-3xl tracking-[0.25em]', sub: 'text-sm tracking-[0.3em]' },
   };
 
-  const isDarkCard = variant === 'dark' || variant === 'gold';
-  const strokeColor = variant === 'white-bg' ? '#9f7e52' : '#c5a880';
-  const textColor = variant === 'white-bg' ? 'text-[#2a241e]' : 'text-neutral-100';
-  const subColor = variant === 'white-bg' ? 'text-[#8c7457]' : 'text-[#c5a880]';
+  const titleColor = variant === 'light' ? 'text-white' : 'text-[#2a1745]';
+  const subColor = variant === 'light' ? 'text-purple-200' : 'text-[#6e2b9c]';
 
   return (
-    <div className={`flex flex-col items-center select-none text-center ${className}`}>
-      {/* Majestic Phoenix Crest & Architectural Arch */}
-      <div className={`relative ${iconSizes[size]} mb-1.5 flex items-center justify-center`}>
-        <svg
-          viewBox="0 0 100 90"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full drop-shadow-sm"
-        >
-          {/* Classical Dome Arch with Columns motif */}
-          <path
-            d="M10 75C10 38 27.9 10 50 10C72.1 10 90 38 90 75"
-            stroke={strokeColor}
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          {/* Outer fine halo */}
-          <path
-            d="M16 75C16 43 31.2 18 50 18C68.8 18 84 43 84 75"
-            stroke={strokeColor}
-            strokeWidth="1.2"
-            strokeDasharray="2 3"
-          />
-          {/* Vertical architectural colonnade arches */}
-          <path d="M26 75V44C26 38 31 33 38 33V75" stroke={strokeColor} strokeWidth="2" />
-          <path d="M74 75V44C74 38 69 33 62 33V75" stroke={strokeColor} strokeWidth="2" />
-          <path d="M42 75V25C42 21 45.5 18 50 18C54.5 18 58 21 58 25V75" stroke={strokeColor} strokeWidth="2.5" />
-          
-          {/* Rising Phoenix Crest in the center */}
-          <path
-            d="M50 24L53 31L61 32L55 37L57 45L50 41L43 45L45 37L39 32L47 31L50 24Z"
-            fill={strokeColor}
-          />
-          {/* Base pedestal line */}
-          <line x1="6" y1="75" x2="94" y2="75" stroke={strokeColor} strokeWidth="3" strokeLinecap="round" />
-          <line x1="14" y1="81" x2="86" y2="81" stroke={strokeColor} strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
+    <div className={`flex ${horizontal ? 'flex-row items-center gap-2.5 sm:gap-3 text-left' : 'flex-col items-center text-center'} select-none ${className}`}>
+      {/* Official Circular E-Phoenix Crest from ephoenix.jpg */}
+      <div className={`relative ${iconSizes[size]} shrink-0 rounded-full overflow-hidden border-2 border-[#4e1e7a]/30 shadow-xs bg-white p-0.5`}>
+        <img
+          src="/images/logo.jpg"
+          alt="E-Phoenix Hotel Logo"
+          className="w-full h-full object-cover rounded-full"
+        />
       </div>
 
-      {/* Brand Text */}
-      <div className="flex flex-col items-center">
-        <span className={`font-serif font-bold ${textSizes[size].title} ${textColor} uppercase transition-colors`}>
-          E-Phoenix Hotel
-        </span>
+      {/* Brand Typography */}
+      <div>
+        <div className={`font-cinzel font-bold ${titleColor} ${textSizes[size].title} leading-tight`}>
+          E-PHOENIX HOTEL
+        </div>
         {showSubtitle && (
-          <span className={`font-cinzel font-medium ${textSizes[size].sub} ${subColor} uppercase mt-0.5`}>
-            HOTEL • ILORIN
-          </span>
+          <div className={`font-sans font-semibold uppercase ${subColor} ${textSizes[size].sub} mt-0.5 flex items-center gap-1.5`}>
+            <span>ILORIN</span>
+            <span className="w-1 h-1 rounded-full bg-[#c49b55]" />
+            <span>EST. 1981</span>
+          </div>
         )}
       </div>
     </div>
