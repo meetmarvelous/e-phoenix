@@ -66,17 +66,17 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
   };
 
   const navLinks = [
-    { name: 'Rooms & Suites', href: '#rooms', id: 'rooms', hasDropdown: false },
-    { name: 'Our 3 Locations', href: '#locations', id: 'locations', hasDropdown: true },
-    { name: 'Facilities & Pool', href: '#facilities', id: 'facilities', hasDropdown: false },
+    { name: 'Suites', href: '#rooms', id: 'rooms', hasDropdown: false },
+    { name: 'Locations', href: '#locations', id: 'locations', hasDropdown: true },
+    { name: 'Amenities', href: '#facilities', id: 'facilities', hasDropdown: false },
     { name: 'Heritage', href: '#heritage', id: 'heritage', hasDropdown: false },
-    { name: 'Contact & Bank', href: '#contact', id: 'contact', hasDropdown: false },
+    { name: 'Contact', href: '#contact', id: 'contact', hasDropdown: false },
   ];
 
   return (
     <header
       id="main-nav"
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-3.5 bg-white/95 backdrop-blur-md border-b border-[#ECE5F3] shadow-xs"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md border-b border-[#ECE5F3] shadow-xs"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo with Real Crest (Purple variant always) */}
@@ -103,7 +103,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
                 >
                   <a
                     href={link.href}
-                    className={`text-xs font-semibold tracking-[0.16em] uppercase transition-colors flex items-center gap-1 py-1 ${
+                    className={`text-[11px] xl:text-xs font-semibold tracking-[0.14em] uppercase transition-colors flex items-center gap-1 py-1 ${
                       isActive
                         ? 'text-[#4E1E7A] font-bold'
                         : 'text-[#3D3150] hover:text-[#4E1E7A]'
@@ -181,7 +181,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-xs font-semibold tracking-[0.16em] uppercase transition-colors relative py-1 flex flex-col items-center group ${
+                className={`text-[11px] xl:text-xs font-semibold tracking-[0.14em] uppercase transition-colors relative py-1 flex flex-col items-center group ${
                   isActive
                     ? 'text-[#4E1E7A] font-bold'
                     : 'text-[#3D3150] hover:text-[#4E1E7A]'
@@ -197,33 +197,25 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
         </nav>
 
         {/* Desktop Right Actions (Streamlined & Non-Crowded) */}
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-2.5">
           {/* Instant Concierge Button */}
           <a
             href={HOTEL_HERITAGE.primaryWhatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs font-medium tracking-wide transition-all py-1.5 px-3 rounded-full border cursor-pointer text-[#4E1E7A] hover:text-[#381259] bg-[#F4EDF9] border-[#E5D5F2] hover:bg-[#EBDFFA]"
+            className="flex items-center gap-1.5 text-[11px] xl:text-xs font-medium tracking-wide transition-all py-1.5 px-3 rounded-full border cursor-pointer text-[#4E1E7A] hover:text-[#381259] bg-[#F4EDF9] border-[#E5D5F2] hover:bg-[#EBDFFA]"
+            title="Chat with 24/7 Front Desk Concierge"
           >
             <MessageCircle className="w-3.5 h-3.5 text-[#C49B55]" />
-            <span>Concierge Desk</span>
-          </a>
-
-          {/* Front Desk Telephone (Shown on xl screens >=1280px to avoid crowding 1024-1279px) */}
-          <a
-            href={`tel:${HOTEL_HERITAGE.primaryPhone}`}
-            className="hidden xl:flex items-center gap-1.5 text-xs font-semibold transition-colors tracking-wide py-1.5 px-2.5 text-[#2D223F] hover:text-[#4E1E7A]"
-          >
-            <Phone className="w-3.5 h-3.5 text-[#C49B55]" />
-            <span>{HOTEL_HERITAGE.primaryPhone.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3')}</span>
+            <span>Concierge</span>
           </a>
 
           {/* Primary CTA Button */}
           <button
             onClick={onOpenBooking}
-            className="px-5 py-2.5 bg-gradient-to-r from-[#4E1E7A] to-[#381259] hover:from-[#5D2490] hover:to-[#4A1874] text-white text-xs font-bold tracking-[0.18em] uppercase rounded-xs transition-all duration-200 shadow-md hover:shadow-purple-900/30 active:scale-95 cursor-pointer border border-[#C49B55]/40"
+            className="px-4 py-2 bg-gradient-to-r from-[#4E1E7A] to-[#381259] hover:from-[#5D2490] hover:to-[#4A1874] text-white text-[11px] font-bold tracking-[0.16em] uppercase rounded-xs transition-all duration-200 shadow-xs hover:shadow-purple-900/30 active:scale-95 cursor-pointer border border-[#C49B55]/40"
           >
-            BOOK A STAY
+            RESERVE
           </button>
         </div>
 
