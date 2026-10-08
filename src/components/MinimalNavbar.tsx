@@ -76,19 +76,15 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
   return (
     <header
       id="main-nav"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-3.5 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-[#ECE5F3] shadow-xs'
-          : 'bg-gradient-to-b from-black/85 via-black/45 to-transparent border-b border-white/10'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-3.5 bg-white/95 backdrop-blur-md border-b border-[#ECE5F3] shadow-xs"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo with Real Crest (Adaptive Light/Purple variant) */}
+        {/* Brand Logo with Real Crest (Purple variant always) */}
         <a href="#hero" className="flex items-center gap-3 group">
           <PhoenixLogo
             size="sm"
             showSubtitle={true}
-            variant={isScrolled ? 'purple' : 'light'}
+            variant="purple"
           />
         </a>
 
@@ -108,13 +104,9 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
                   <a
                     href={link.href}
                     className={`text-xs font-semibold tracking-[0.16em] uppercase transition-colors flex items-center gap-1 py-1 ${
-                      isScrolled
-                        ? isActive
-                          ? 'text-[#4E1E7A] font-bold'
-                          : 'text-[#3D3150] hover:text-[#4E1E7A]'
-                        : isActive
-                        ? 'text-[#C49B55] font-bold'
-                        : 'text-white/80 hover:text-white'
+                      isActive
+                        ? 'text-[#4E1E7A] font-bold'
+                        : 'text-[#3D3150] hover:text-[#4E1E7A]'
                     }`}
                   >
                     <span>{link.name}</span>
@@ -190,13 +182,9 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
                 key={link.name}
                 href={link.href}
                 className={`text-xs font-semibold tracking-[0.16em] uppercase transition-colors relative py-1 flex flex-col items-center group ${
-                  isScrolled
-                    ? isActive
-                      ? 'text-[#4E1E7A] font-bold'
-                      : 'text-[#3D3150] hover:text-[#4E1E7A]'
-                    : isActive
-                    ? 'text-[#C49B55] font-bold'
-                    : 'text-white/80 hover:text-white'
+                  isActive
+                    ? 'text-[#4E1E7A] font-bold'
+                    : 'text-[#3D3150] hover:text-[#4E1E7A]'
                 }`}
               >
                 <span>{link.name}</span>
@@ -215,11 +203,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
             href={HOTEL_HERITAGE.primaryWhatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-1.5 text-xs font-medium tracking-wide transition-all py-1.5 px-3 rounded-full border cursor-pointer ${
-              isScrolled
-                ? 'text-[#4E1E7A] hover:text-[#381259] bg-[#F4EDF9] border-[#E5D5F2] hover:bg-[#EBDFFA]'
-                : 'text-white hover:text-white bg-white/12 border-white/25 hover:bg-white/20 backdrop-blur-md'
-            }`}
+            className="flex items-center gap-1.5 text-xs font-medium tracking-wide transition-all py-1.5 px-3 rounded-full border cursor-pointer text-[#4E1E7A] hover:text-[#381259] bg-[#F4EDF9] border-[#E5D5F2] hover:bg-[#EBDFFA]"
           >
             <MessageCircle className="w-3.5 h-3.5 text-[#C49B55]" />
             <span>Concierge Desk</span>
@@ -228,11 +212,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
           {/* Front Desk Telephone (Shown on xl screens >=1280px to avoid crowding 1024-1279px) */}
           <a
             href={`tel:${HOTEL_HERITAGE.primaryPhone}`}
-            className={`hidden xl:flex items-center gap-1.5 text-xs font-semibold transition-colors tracking-wide py-1.5 px-2.5 ${
-              isScrolled
-                ? 'text-[#2D223F] hover:text-[#4E1E7A]'
-                : 'text-white/85 hover:text-white'
-            }`}
+            className="hidden xl:flex items-center gap-1.5 text-xs font-semibold transition-colors tracking-wide py-1.5 px-2.5 text-[#2D223F] hover:text-[#4E1E7A]"
           >
             <Phone className="w-3.5 h-3.5 text-[#C49B55]" />
             <span>{HOTEL_HERITAGE.primaryPhone.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3')}</span>
@@ -251,9 +231,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
         <div className="flex lg:hidden items-center gap-2 sm:gap-3">
           <a
             href={`tel:${HOTEL_HERITAGE.primaryPhone}`}
-            className={`p-2 rounded-full transition-colors ${
-              isScrolled ? 'text-[#4E1E7A] hover:bg-purple-50' : 'text-white hover:bg-white/10'
-            }`}
+            className="p-2 rounded-full transition-colors text-[#4E1E7A] hover:bg-purple-50"
             aria-label="Call front desk"
           >
             <Phone className="w-4 h-4" />
@@ -268,9 +246,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`p-2 transition-colors ${
-              isScrolled ? 'text-[#3D3150] hover:text-[#4E1E7A]' : 'text-white hover:text-white/80'
-            }`}
+            className="p-2 transition-colors text-[#3D3150] hover:text-[#4E1E7A]"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >

@@ -116,9 +116,9 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
 
       {/* MAIN CONTENT */}
       <div className="relative z-10 flex flex-col justify-between min-h-screen">
-        <div className="pt-20 sm:pt-28" />
+        <div className="pt-14 sm:pt-28" />
 
-        <div className="flex-1 flex flex-col justify-center px-4 sm:px-10 lg:px-20 max-w-7xl mx-auto w-full py-4 sm:py-8">
+        <div className="flex-1 flex flex-col justify-center px-4 sm:px-10 lg:px-20 max-w-7xl mx-auto w-full py-2 sm:py-8">
 
           {/* Accent tag */}
           <AnimatePresence mode="wait">
@@ -128,10 +128,10 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 16 }}
               transition={{ duration: 0.45 }}
-              className="inline-flex items-center gap-2.5 mb-3 sm:mb-5"
+              className="inline-flex items-center gap-2 mb-2 sm:mb-5"
             >
-              <span className="h-px w-8 bg-[#C49B55]" />
-              <span className="text-[#C49B55] text-[10px] font-bold tracking-[0.3em] uppercase font-cinzel">
+              <span className="h-px w-6 sm:w-8 bg-[#C49B55]" />
+              <span className="text-[#C49B55] text-[10px] font-bold tracking-[0.25em] uppercase font-cinzel">
                 {slide.accent}
               </span>
             </motion.div>
@@ -145,7 +145,7 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.55, delay: 0.07 }}
-              className="font-playfair text-3xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.1] sm:leading-[1.07] tracking-tight max-w-3xl mb-3 sm:mb-4"
+              className="font-playfair text-2xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight max-w-3xl mb-2 sm:mb-4"
             >
               {slide.title}
             </motion.h1>
@@ -159,13 +159,13 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.45, delay: 0.14 }}
-              className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 mb-6 sm:mb-8"
+              className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-3.5 sm:mb-8"
             >
-              <p className="text-white/80 text-sm sm:text-lg font-light tracking-wide">
+              <p className="text-white/80 text-xs sm:text-lg font-light tracking-wide">
                 {slide.caption}
               </p>
               <span className="hidden sm:inline text-white/30 mx-2">•</span>
-              <span className="flex items-center gap-1 text-[#C49B55] text-xs font-semibold tracking-wider uppercase">
+              <span className="flex items-center gap-1 text-[#C49B55] text-[11px] sm:text-xs font-semibold tracking-wider uppercase">
                 <MapPin className="w-3.5 h-3.5" />
                 {slide.location}
               </span>
@@ -177,12 +177,12 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.22 }}
-            className="flex flex-wrap gap-2.5 sm:gap-3 mb-6 sm:mb-8"
+            className="flex flex-wrap gap-2 sm:gap-3 mb-3.5 sm:mb-8"
           >
             <button
               onClick={onOpenBooking}
               id="hero-reserve-btn"
-              className="group px-6 sm:px-7 py-3.5 sm:py-4 bg-gradient-to-r from-[#4E1E7A] to-[#6B2FA0] hover:from-[#5D2490] hover:to-[#7B3FB0] text-white text-xs font-bold tracking-[0.2em] uppercase rounded-xs transition-all duration-200 shadow-2xl shadow-purple-900/40 hover:shadow-purple-800/50 active:scale-95 cursor-pointer flex items-center gap-2.5 border border-[#8B4FC0]/40"
+              className="group px-5 sm:px-7 py-2.5 sm:py-4 bg-gradient-to-r from-[#4E1E7A] to-[#6B2FA0] hover:from-[#5D2490] hover:to-[#7B3FB0] text-white text-xs font-bold tracking-[0.2em] uppercase rounded-xs transition-all duration-200 shadow-2xl shadow-purple-900/40 hover:shadow-purple-800/50 active:scale-95 cursor-pointer flex items-center gap-2 border border-[#8B4FC0]/40"
             >
               <span>RESERVE A SUITE</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#C49B55] group-hover:translate-x-1 transition-transform duration-200" />
@@ -191,28 +191,28 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
             <a
               href="#rooms"
               id="hero-explore-btn"
-              className="px-6 sm:px-7 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:border-white/60 text-xs font-bold tracking-[0.2em] uppercase rounded-xs transition-all duration-200 flex items-center gap-2.5"
+              className="px-5 sm:px-7 py-2.5 sm:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:border-white/60 text-xs font-bold tracking-[0.2em] uppercase rounded-xs transition-all duration-200 flex items-center gap-2"
             >
               <Play className="w-3 h-3 fill-white" />
               <span>EXPLORE ROOMS</span>
             </a>
           </motion.div>
 
-          {/* Perks strip - 2x2 grid on mobile, flex on desktop */}
+          {/* Perks strip - compact pill badges on mobile, rich cards on desktop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-8 pt-1"
+            className="flex flex-wrap items-center gap-2 sm:gap-8 pt-0.5 mb-2.5 sm:mb-0"
           >
             {PERKS.map(({ icon: Icon, label, sub }) => (
-              <div key={label} className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center shrink-0">
-                  <Icon className="w-3.5 h-3.5 text-[#C49B55]" />
+              <div key={label} className="flex items-center gap-1.5 sm:gap-2 bg-black/25 sm:bg-transparent backdrop-blur-xs px-2.5 py-1 sm:p-0 rounded-full border border-white/10 sm:border-0">
+                <div className="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center shrink-0">
+                  <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C49B55]" />
                 </div>
                 <div>
-                  <div className="text-white text-xs font-bold leading-tight">{label}</div>
-                  <div className="text-white/60 text-[10px]">{sub}</div>
+                  <div className="text-white text-[11px] sm:text-xs font-bold leading-tight">{label}</div>
+                  <div className="hidden sm:block text-white/60 text-[10px]">{sub}</div>
                 </div>
               </div>
             ))}
@@ -220,7 +220,7 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
         </div>
 
         {/* SLIDER CONTROL STRIP (Naturally positioned above reservation bar - zero overlap) */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-20 w-full mb-2.5 sm:mb-3 flex items-center justify-between text-white/70 select-none z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-20 w-full mb-1.5 sm:mb-3 flex items-center justify-between text-white/70 select-none z-20">
           {/* Slide counter & active caption */}
           <div className="flex items-center gap-2 text-xs">
             <span className="text-[#C49B55] font-bold text-sm sm:text-base font-cinzel tracking-wider">
@@ -286,8 +286,8 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
           className="relative z-20 w-full"
         >
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C49B55]/60 to-transparent" />
-          <div className="bg-[#0E0818]/94 backdrop-blur-xl border-t border-white/10 pb-16 sm:pb-5">
-            <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-20 pt-3 pb-1.5 flex items-center justify-between">
+          <div className="bg-[#0E0818]/94 backdrop-blur-xl border-t border-white/10 pb-14 sm:pb-5">
+            <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-20 pt-2 sm:pt-3 pb-1 sm:pb-1.5 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#C49B55]" />
                 <span className="text-[#C49B55] text-[10px] sm:text-[11px] font-bold tracking-[0.22em] uppercase font-cinzel">
@@ -302,9 +302,9 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
 
             <form
               onSubmit={handleSearch}
-              className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-20 pt-1.5"
+              className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-20 pt-1 sm:pt-1.5"
             >
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
                 {/* Location: 2 columns on mobile, 1 col on desktop */}
                 <div className="col-span-2 sm:col-span-1 lg:col-span-1 flex flex-col gap-1">
                   <label htmlFor="hero-branch" className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C49B55]/90 font-cinzel flex items-center gap-1">
@@ -314,7 +314,7 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
                     id="hero-branch"
                     value={selectedBranch}
                     onChange={(e) => setSelectedBranch(e.target.value)}
-                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-3 py-2.5 focus:outline-none transition-colors cursor-pointer font-medium w-full"
+                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-3 py-2 sm:py-2.5 focus:outline-none transition-colors cursor-pointer font-medium w-full"
                   >
                     <option value="all" className="bg-[#1B0D2A] text-white">All 3 Locations (19 Suites)</option>
                     <option value="main" className="bg-[#1B0D2A] text-white">Main GRA Flagship (6 Rooms)</option>
@@ -334,7 +334,7 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
                     value={checkIn}
                     min={today}
                     onChange={(e) => setCheckIn(e.target.value)}
-                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-2.5 sm:px-3 py-2.5 focus:outline-none transition-colors cursor-pointer w-full"
+                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-2.5 sm:px-3 py-1.5 sm:py-2.5 focus:outline-none transition-colors cursor-pointer w-full"
                     style={{ colorScheme: 'dark' }}
                   />
                 </div>
@@ -350,7 +350,7 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
                     value={checkOut}
                     min={checkIn}
                     onChange={(e) => setCheckOut(e.target.value)}
-                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-2.5 sm:px-3 py-2.5 focus:outline-none transition-colors cursor-pointer w-full"
+                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-2.5 sm:px-3 py-1.5 sm:py-2.5 focus:outline-none transition-colors cursor-pointer w-full"
                     style={{ colorScheme: 'dark' }}
                   />
                 </div>
