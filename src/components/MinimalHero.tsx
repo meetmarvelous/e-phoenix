@@ -114,39 +114,11 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
         </motion.div>
       </AnimatePresence>
 
-      {/* VERTICAL DOTS - desktop */}
-      <div className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 sm:flex flex-col gap-2 hidden">
-        {SLIDES.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all duration-300 rounded-full cursor-pointer ${
-              i === current ? 'w-2 h-8 bg-[#C49B55]' : 'w-2 h-2 bg-white/40 hover:bg-white/70'
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* HORIZONTAL DOTS - mobile */}
-      <div className="absolute bottom-[220px] left-1/2 -translate-x-1/2 z-30 flex gap-2 sm:hidden">
-        {SLIDES.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all duration-300 rounded-full cursor-pointer ${
-              i === current ? 'w-6 h-2 bg-[#C49B55]' : 'w-2 h-2 bg-white/40'
-            }`}
-          />
-        ))}
-      </div>
-
       {/* MAIN CONTENT */}
       <div className="relative z-10 flex flex-col justify-between min-h-screen">
-        <div className="pt-24 sm:pt-28" />
+        <div className="pt-20 sm:pt-28" />
 
-        <div className="flex-1 flex flex-col justify-center px-5 sm:px-10 lg:px-20 max-w-7xl mx-auto w-full py-8">
+        <div className="flex-1 flex flex-col justify-center px-4 sm:px-10 lg:px-20 max-w-7xl mx-auto w-full py-4 sm:py-8">
 
           {/* Accent tag */}
           <AnimatePresence mode="wait">
@@ -156,7 +128,7 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 16 }}
               transition={{ duration: 0.45 }}
-              className="inline-flex items-center gap-2.5 mb-5"
+              className="inline-flex items-center gap-2.5 mb-3 sm:mb-5"
             >
               <span className="h-px w-8 bg-[#C49B55]" />
               <span className="text-[#C49B55] text-[10px] font-bold tracking-[0.3em] uppercase font-cinzel">
@@ -173,7 +145,7 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.55, delay: 0.07 }}
-              className="font-playfair text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.07] tracking-tight max-w-3xl mb-4"
+              className="font-playfair text-3xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.1] sm:leading-[1.07] tracking-tight max-w-3xl mb-3 sm:mb-4"
             >
               {slide.title}
             </motion.h1>
@@ -187,9 +159,9 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.45, delay: 0.14 }}
-              className="flex flex-col sm:flex-row sm:items-center gap-2 mb-8"
+              className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 mb-6 sm:mb-8"
             >
-              <p className="text-white/75 text-base sm:text-lg font-light tracking-wide">
+              <p className="text-white/80 text-sm sm:text-lg font-light tracking-wide">
                 {slide.caption}
               </p>
               <span className="hidden sm:inline text-white/30 mx-2">•</span>
@@ -205,12 +177,12 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.22 }}
-            className="flex flex-wrap gap-3 mb-10"
+            className="flex flex-wrap gap-2.5 sm:gap-3 mb-6 sm:mb-8"
           >
             <button
               onClick={onOpenBooking}
               id="hero-reserve-btn"
-              className="group px-7 py-4 bg-gradient-to-r from-[#4E1E7A] to-[#6B2FA0] hover:from-[#5D2490] hover:to-[#7B3FB0] text-white text-xs font-bold tracking-[0.2em] uppercase rounded-xs transition-all duration-200 shadow-2xl shadow-purple-900/40 hover:shadow-purple-800/50 active:scale-95 cursor-pointer flex items-center gap-2.5 border border-[#8B4FC0]/40"
+              className="group px-6 sm:px-7 py-3.5 sm:py-4 bg-gradient-to-r from-[#4E1E7A] to-[#6B2FA0] hover:from-[#5D2490] hover:to-[#7B3FB0] text-white text-xs font-bold tracking-[0.2em] uppercase rounded-xs transition-all duration-200 shadow-2xl shadow-purple-900/40 hover:shadow-purple-800/50 active:scale-95 cursor-pointer flex items-center gap-2.5 border border-[#8B4FC0]/40"
             >
               <span>RESERVE A SUITE</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#C49B55] group-hover:translate-x-1 transition-transform duration-200" />
@@ -219,47 +191,106 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
             <a
               href="#rooms"
               id="hero-explore-btn"
-              className="px-7 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:border-white/60 text-xs font-bold tracking-[0.2em] uppercase rounded-xs transition-all duration-200 flex items-center gap-2.5"
+              className="px-6 sm:px-7 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:border-white/60 text-xs font-bold tracking-[0.2em] uppercase rounded-xs transition-all duration-200 flex items-center gap-2.5"
             >
               <Play className="w-3 h-3 fill-white" />
               <span>EXPLORE ROOMS</span>
             </a>
           </motion.div>
 
-          {/* Perks strip */}
+          {/* Perks strip - 2x2 grid on mobile, flex on desktop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="flex flex-wrap gap-4 sm:gap-8"
+            className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-8 pt-1"
           >
             {PERKS.map(({ icon: Icon, label, sub }) => (
               <div key={label} className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center shrink-0">
                   <Icon className="w-3.5 h-3.5 text-[#C49B55]" />
                 </div>
                 <div>
                   <div className="text-white text-xs font-bold leading-tight">{label}</div>
-                  <div className="text-white/50 text-[10px]">{sub}</div>
+                  <div className="text-white/60 text-[10px]">{sub}</div>
                 </div>
               </div>
             ))}
           </motion.div>
         </div>
 
+        {/* SLIDER CONTROL STRIP (Naturally positioned above reservation bar - zero overlap) */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-20 w-full mb-2.5 sm:mb-3 flex items-center justify-between text-white/70 select-none z-20">
+          {/* Slide counter & active caption */}
+          <div className="flex items-center gap-2 text-xs font-mono">
+            <span className="text-[#C49B55] font-bold text-sm sm:text-base">
+              {String(current + 1).padStart(2, '0')}
+            </span>
+            <span className="text-white/30">/</span>
+            <span className="text-white/60">
+              {String(SLIDES.length).padStart(2, '0')}
+            </span>
+            <span className="hidden sm:inline text-white/20 mx-1">•</span>
+            <span className="hidden sm:inline text-white/80 text-xs font-sans font-medium tracking-wide">
+              {slide.title}
+            </span>
+          </div>
+
+          {/* Slider dots */}
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`transition-all duration-300 rounded-full cursor-pointer ${
+                  i === current
+                    ? 'w-6 sm:w-8 h-1.5 sm:h-2 bg-[#C49B55]'
+                    : 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/35 hover:bg-white/70'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Slide navigation buttons & Heritage note */}
+          <div className="flex items-center gap-2 sm:gap-4">
+            <div className="hidden md:flex items-center gap-1.5 text-[10px] tracking-wider uppercase font-cinzel text-[#C49B55]/80">
+              <Star className="w-3 h-3 text-[#C49B55] fill-[#C49B55]" />
+              <span>Est. {HOTEL_HERITAGE.since} · Ilorin</span>
+            </div>
+
+            <div className="flex items-center gap-1">
+              <button
+                onClick={prev}
+                aria-label="Previous slide"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/30 hover:bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all cursor-pointer active:scale-90"
+              >
+                <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              </button>
+              <button
+                onClick={next}
+                aria-label="Next slide"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/30 hover:bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all cursor-pointer active:scale-90"
+              >
+                <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* PREMIUM RESERVATION BAR */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className="relative z-20 w-full"
         >
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C49B55]/60 to-transparent" />
-          <div className="bg-[#0E0818]/92 backdrop-blur-xl border-t border-white/8">
-            <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20 pt-3.5 pb-1 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
+          <div className="bg-[#0E0818]/94 backdrop-blur-xl border-t border-white/10 pb-16 sm:pb-5">
+            <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-20 pt-3 pb-1.5 flex items-center justify-between">
+              <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#C49B55]" />
-                <span className="text-[#C49B55] text-[10px] font-bold tracking-[0.28em] uppercase font-cinzel">
+                <span className="text-[#C49B55] text-[10px] sm:text-[11px] font-bold tracking-[0.22em] uppercase font-cinzel">
                   DIRECT RESERVATION & RATE CHECK
                 </span>
               </div>
@@ -268,20 +299,22 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
                 <span>Best Rates Guaranteed · No Booking Fees · Instant Confirmation</span>
               </div>
             </div>
+
             <form
               onSubmit={handleSearch}
-              className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20 pb-5 pt-2"
+              className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-20 pt-1.5"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="hero-branch" className="text-[9px] font-bold tracking-[0.25em] uppercase text-[#C49B55]/80 font-cinzel flex items-center gap-1">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
+                {/* Location: 2 columns on mobile, 1 col on desktop */}
+                <div className="col-span-2 sm:col-span-1 lg:col-span-1 flex flex-col gap-1">
+                  <label htmlFor="hero-branch" className="text-[9px] font-bold tracking-[0.22em] uppercase text-[#C49B55]/90 font-cinzel flex items-center gap-1">
                     <MapPin className="w-2.5 h-2.5" /> LOCATION
                   </label>
                   <select
                     id="hero-branch"
                     value={selectedBranch}
                     onChange={(e) => setSelectedBranch(e.target.value)}
-                    className="bg-white/8 hover:bg-white/12 border border-white/15 focus:border-[#C49B55]/70 text-white/90 text-xs rounded-xs px-3.5 py-2.5 focus:outline-none transition-colors cursor-pointer font-medium"
+                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-3 py-2.5 focus:outline-none transition-colors cursor-pointer font-medium w-full"
                   >
                     <option value="all" className="bg-[#1B0D2A] text-white">All 3 Locations (19 Suites)</option>
                     <option value="main" className="bg-[#1B0D2A] text-white">Main GRA Flagship (6 Rooms)</option>
@@ -289,8 +322,10 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
                     <option value="annex2" className="bg-[#1B0D2A] text-white">Annex 2 - Flower Garden (9 Rooms)</option>
                   </select>
                 </div>
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="hero-checkin" className="text-[9px] font-bold tracking-[0.25em] uppercase text-[#C49B55]/80 font-cinzel flex items-center gap-1">
+
+                {/* Check-In: 1 column on mobile, 1 col on desktop */}
+                <div className="col-span-1 flex flex-col gap-1">
+                  <label htmlFor="hero-checkin" className="text-[9px] font-bold tracking-[0.22em] uppercase text-[#C49B55]/90 font-cinzel flex items-center gap-1">
                     <Calendar className="w-2.5 h-2.5" /> CHECK-IN
                   </label>
                   <input
@@ -299,12 +334,14 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
                     value={checkIn}
                     min={today}
                     onChange={(e) => setCheckIn(e.target.value)}
-                    className="bg-white/8 hover:bg-white/12 border border-white/15 focus:border-[#C49B55]/70 text-white/90 text-xs rounded-xs px-3.5 py-2.5 focus:outline-none transition-colors cursor-pointer font-mono"
+                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-2.5 sm:px-3 py-2.5 focus:outline-none transition-colors cursor-pointer font-mono w-full"
                     style={{ colorScheme: 'dark' }}
                   />
                 </div>
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="hero-checkout" className="text-[9px] font-bold tracking-[0.25em] uppercase text-[#C49B55]/80 font-cinzel flex items-center gap-1">
+
+                {/* Check-Out: 1 column on mobile, 1 col on desktop */}
+                <div className="col-span-1 flex flex-col gap-1">
+                  <label htmlFor="hero-checkout" className="text-[9px] font-bold tracking-[0.22em] uppercase text-[#C49B55]/90 font-cinzel flex items-center gap-1">
                     <Calendar className="w-2.5 h-2.5" /> CHECK-OUT
                   </label>
                   <input
@@ -313,15 +350,17 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
                     value={checkOut}
                     min={checkIn}
                     onChange={(e) => setCheckOut(e.target.value)}
-                    className="bg-white/8 hover:bg-white/12 border border-white/15 focus:border-[#C49B55]/70 text-white/90 text-xs rounded-xs px-3.5 py-2.5 focus:outline-none transition-colors cursor-pointer font-mono"
+                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-2.5 sm:px-3 py-2.5 focus:outline-none transition-colors cursor-pointer font-mono w-full"
                     style={{ colorScheme: 'dark' }}
                   />
                 </div>
-                <div className="flex items-end">
+
+                {/* Check Availability button: 2 columns on mobile, 1 col on desktop */}
+                <div className="col-span-2 sm:col-span-1 lg:col-span-1 flex items-end">
                   <button
                     type="submit"
                     id="hero-search-btn"
-                    className="w-full py-2.5 bg-gradient-to-r from-[#C49B55] to-[#A87F3D] hover:from-[#D4AA65] hover:to-[#B88F4D] text-[#0E0818] text-xs font-bold tracking-[0.2em] uppercase rounded-xs transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-amber-900/30 active:scale-95"
+                    className="w-full py-2.5 bg-gradient-to-r from-[#C49B55] to-[#A87F3D] hover:from-[#D4AA65] hover:to-[#B88F4D] text-[#0E0818] text-xs font-bold tracking-[0.18em] uppercase rounded-xs transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-amber-900/30 active:scale-95"
                   >
                     <span>CHECK AVAILABILITY</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -331,37 +370,6 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
             </form>
           </div>
         </motion.div>
-      </div>
-
-      {/* NAV ARROWS */}
-      <button
-        onClick={prev}
-        aria-label="Previous slide"
-        className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/25 hover:bg-black/50 backdrop-blur-sm border border-white/20 items-center justify-center text-white transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 hidden sm:flex"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <button
-        onClick={next}
-        aria-label="Next slide"
-        className="absolute right-14 sm:right-16 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/25 hover:bg-black/50 backdrop-blur-sm border border-white/20 items-center justify-center text-white transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 hidden sm:flex"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
-
-      {/* SLIDE COUNTER */}
-      <div className="absolute bottom-[200px] sm:bottom-[185px] left-5 sm:left-10 lg:left-20 z-20 flex items-center gap-2 text-white/40 text-[10px] font-mono select-none">
-        <span className="text-white font-bold text-sm">{String(current + 1).padStart(2, '0')}</span>
-        <span>/</span>
-        <span>{String(SLIDES.length).padStart(2, '0')}</span>
-      </div>
-
-      {/* HERITAGE BADGE */}
-      <div className="absolute bottom-[200px] sm:bottom-[185px] right-16 sm:right-20 z-20 hidden sm:flex items-center gap-1.5">
-        <Star className="w-3 h-3 text-[#C49B55] fill-[#C49B55]" />
-        <span className="text-[10px] tracking-widest uppercase font-cinzel text-[#C49B55]/70">
-          Est. {HOTEL_HERITAGE.since} · Ilorin, Nigeria
-        </span>
       </div>
     </section>
   );
