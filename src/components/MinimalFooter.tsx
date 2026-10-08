@@ -14,7 +14,7 @@ export const MinimalFooter: React.FC = () => {
             <p className="text-xs text-[#5F586D] font-light leading-relaxed mb-4">
               {HOTEL_HERITAGE.heritageNote}
             </p>
-            <div className="text-xs text-[#4E1E7A] font-mono font-medium">
+            <div className="text-xs text-[#4E1E7A] font-cinzel font-bold tracking-wider">
               Established 1981 • Kwara State, Nigeria
             </div>
           </div>
@@ -33,8 +33,8 @@ export const MinimalFooter: React.FC = () => {
                 <p className="text-[#5F586D] font-light leading-snug pl-5">
                   {b.address}
                 </p>
-                <div className="pl-5 mt-1 font-mono text-[11px] text-[#3F3949]">
-                  Tel: <a href={`tel:${b.phone}`} className="hover:underline text-[#4E1E7A] font-semibold">{b.phone}</a>
+                <div className="pl-5 mt-1 text-[11px] text-[#3F3949]">
+                  Tel: <a href={`tel:${b.phone}`} className="hover:underline text-[#4E1E7A] font-semibold">{b.phone.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3')}</a>
                 </div>
               </div>
             ))}
@@ -48,8 +48,8 @@ export const MinimalFooter: React.FC = () => {
             <div className="space-y-3 text-xs">
               <div>
                 <span className="text-[#7A7188] block uppercase tracking-wider text-[10px]">Headquarters Phone:</span>
-                <a href={`tel:${HOTEL_HERITAGE.primaryPhone}`} className="text-[#4E1E7A] hover:underline font-mono text-sm font-bold">
-                  {HOTEL_HERITAGE.primaryPhone}
+                <a href={`tel:${HOTEL_HERITAGE.primaryPhone}`} className="text-[#4E1E7A] hover:underline text-sm font-bold tracking-wide">
+                  {HOTEL_HERITAGE.primaryPhone.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3')}
                 </a>
               </div>
 
@@ -75,7 +75,7 @@ export const MinimalFooter: React.FC = () => {
 
               <div>
                 <span className="text-[#7A7188] block uppercase tracking-wider text-[10px]">Alternate Phone:</span>
-                <span className="text-[#3F3949] font-mono">07071721368 | 07077014444</span>
+                <span className="text-[#3F3949] tracking-wide">0707 172 1368 · 0707 701 4444</span>
               </div>
             </div>
           </div>
@@ -104,7 +104,7 @@ export const MinimalFooter: React.FC = () => {
           <p>
             © 2026 E-Phoenix Hotel Group. All rights reserved. Uniquely Awesome Hospitality since 1981.
           </p>
-          <p className="text-[11px] font-mono">
+          <p className="text-[11px] tracking-wider text-[#7A7188] font-medium">
             GRA Ilorin • Tanke Fate • Flower Garden
           </p>
         </div>

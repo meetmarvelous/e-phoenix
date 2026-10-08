@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ALL_ROOMS, RealRoom } from '../data/hotelRealData';
-import { Coffee, Wifi, Users, Bed, MessageCircle, ArrowRight, Check } from 'lucide-react';
+import { Coffee, Wifi, Users, Bed, MessageCircle, ArrowRight, Check, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface UnifiedRoomsSectionProps {
@@ -38,22 +38,26 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
       case 'main':
         return 'bg-white/95 text-[#4E1E7A] border-[#DCC7EE] shadow-xs';
       case 'annex1':
-        return 'bg-white/95 text-[#1E5F8A] border-[#C3DDF2] shadow-xs';
+        return 'bg-white/95 text-[#3D1E6D] border-[#D8C7ED] shadow-xs';
       case 'annex2':
-        return 'bg-white/95 text-[#1D7743] border-[#BEE5CB] shadow-xs';
+        return 'bg-[#FAF6EF] text-[#856729] border-[#E8D8B6] shadow-xs';
       default:
         return 'bg-white/95 text-[#4E1E7A] border-[#DCC7EE] shadow-xs';
     }
   };
 
   return (
-    <section id="rooms" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-[#ECE5F3]">
+    <section id="rooms" className="py-14 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-[#ECE5F3]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C49B55] uppercase block mb-1 font-cinzel">
-            ✦ 02 • THE ACCOMMODATIONS ✦
-          </span>
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <div className="inline-flex items-center gap-2 mb-1.5">
+            <span className="w-5 h-px bg-[#C49B55]" />
+            <span className="text-[11px] font-bold tracking-[0.25em] text-[#C49B55] uppercase font-cinzel">
+              02 • THE ACCOMMODATIONS
+            </span>
+            <span className="w-5 h-px bg-[#C49B55]" />
+          </div>
           <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#1B112B] font-bold mb-3.5">
             Suites & Luxury Living
           </h2>
@@ -76,7 +80,7 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
               }`}
             >
               <span>{b.label}</span>
-              <span className={`ml-1.5 font-mono text-[10px] ${activeBranch === b.key ? 'text-[#EBD7A9]' : 'text-[#716584]'}`}>
+              <span className={`ml-1 text-[11px] font-medium ${activeBranch === b.key ? 'text-[#EBD7A9]' : 'text-[#716584]'}`}>
                 ({b.count})
               </span>
             </button>
@@ -84,7 +88,7 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
         </div>
 
         {/* Secondary Price Filter */}
-        <div className="flex items-center justify-center flex-wrap gap-3 mb-14 text-xs">
+        <div className="flex items-center justify-center flex-wrap gap-3 mb-10 sm:mb-14 text-xs">
           <span className="text-[#7A7188] mr-1 text-[11px] font-semibold tracking-wider uppercase font-cinzel">
             Filter Rate:
           </span>
@@ -109,7 +113,7 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
         </div>
 
         {/* Room Cards Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-8">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <AnimatePresence>
             {filteredRooms.map((room) => (
               <motion.div
@@ -140,8 +144,9 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
 
                     {room.popular && (
                       <div className="absolute top-3 right-3">
-                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#1B112B]/90 backdrop-blur-md text-[#EBD7A9] border border-[#C49B55]/60 font-cinzel shadow-sm">
-                          ✦ FEATURED
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#1B112B]/90 backdrop-blur-md text-[#EBD7A9] border border-[#C49B55]/60 font-cinzel shadow-sm inline-flex items-center gap-1">
+                          <Sparkles className="w-2.5 h-2.5 text-[#C49B55]" />
+                          <span>FEATURED</span>
                         </span>
                       </div>
                     )}
@@ -154,7 +159,7 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
                         {room.name}
                       </h3>
                       <div className="text-right shrink-0">
-                        <span className="text-lg font-bold text-[#4E1E7A] font-mono">
+                        <span className="text-xl font-bold text-[#4E1E7A] font-playfair tracking-tight">
                           {formatPrice(room.price)}
                         </span>
                         <span className="text-[10px] text-[#7A7188] block font-light">/ night</span>
@@ -164,7 +169,7 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
                     {/* Reassurance Label */}
                     <div className="mb-3.5 pb-2.5 border-b border-[#F2EBF7] flex items-center justify-between text-[11px] text-[#6E6280]">
                       <span className="text-[#C49B55] font-semibold flex items-center gap-1">
-                        <span>✓</span>
+                        <Check className="w-3.5 h-3.5 text-[#C49B55]" />
                         <span>Breakfast Included</span>
                       </span>
                       <span>24/7 Power Guaranteed</span>

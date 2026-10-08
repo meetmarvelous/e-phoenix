@@ -43,12 +43,16 @@ export const KeyPerksSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#FAF8FD] py-20 px-4 sm:px-6 lg:px-8 border-y border-[#ECE5F3]">
+    <section className="bg-[#FAF8FD] py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-y border-[#ECE5F3]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-[#C49B55] uppercase block mb-1 font-cinzel">
-            ✦ 01 • THE E-PHOENIX ADVANTAGE ✦
-          </span>
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 mb-1.5">
+            <span className="w-5 h-px bg-[#C49B55]" />
+            <span className="text-[11px] font-bold tracking-[0.25em] text-[#C49B55] uppercase font-cinzel">
+              01 • THE E-PHOENIX ADVANTAGE
+            </span>
+            <span className="w-5 h-px bg-[#C49B55]" />
+          </div>
           <h2 className="font-playfair text-3xl sm:text-4xl text-[#1B112B] font-bold">
             Every Essential Luxury, Standard
           </h2>

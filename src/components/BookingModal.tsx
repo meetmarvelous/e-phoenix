@@ -133,20 +133,20 @@ Please confirm room availability and payment instructions.`;
             <label className="text-[11px] font-bold tracking-wider text-[#4E1E7A] uppercase block mb-1.5">
               1. SELECT PROPERTY LOCATION
             </label>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {REAL_BRANCHES.map((b) => (
                 <button
                   type="button"
                   key={b.id}
                   onClick={() => setBranch(b.id)}
-                  className={`p-2.5 rounded-xs text-xs font-medium text-left transition-colors border cursor-pointer ${
+                  className={`p-3 rounded-xs text-xs font-medium text-left transition-colors border cursor-pointer flex sm:flex-col justify-between sm:justify-start items-center sm:items-start ${
                     branch === b.id
                       ? 'bg-[#4E1E7A] text-white border-[#4E1E7A] font-bold shadow-xs'
                       : 'bg-[#FAF7FC] text-[#3F3949] border-[#E5D7F2] hover:bg-[#F3EBF9]'
                   }`}
                 >
-                  <div className="truncate font-semibold">{b.name}</div>
-                  <div className="text-[10px] opacity-80 mt-0.5 truncate">
+                  <div className="font-semibold">{b.name}</div>
+                  <div className="text-[10px] opacity-80 mt-0.5 sm:mt-1">
                     {b.id === 'main' ? 'GRA Diplomatic' : b.id === 'annex1' ? 'Tanke / Fate' : 'Flower Garden'}
                   </div>
                 </button>
@@ -208,7 +208,7 @@ Please confirm room availability and payment instructions.`;
               </label>
               <select
                 value={guestsCount}
-                onChange={(e) => setGuestsCount(Number(e.target.value))}
+                onChange={(Number) => setGuestsCount(Number.target.value as any)}
                 className="w-full bg-white border border-[#DDD4E7] text-[#1F1929] text-xs rounded-xs px-3 py-2 focus:outline-none focus:border-[#4E1E7A] focus:ring-1 focus:ring-[#4E1E7A]"
               >
                 <option value={1}>1 Guest</option>
@@ -259,7 +259,7 @@ Please confirm room availability and payment instructions.`;
               <span className="text-[11px] text-[#4E1E7A] font-medium">Includes Daily Complimentary Breakfast</span>
             </div>
             <div className="text-right">
-              <span className="font-playfair text-xl sm:text-2xl font-bold text-[#4E1E7A] font-mono">
+              <span className="font-playfair text-xl sm:text-2xl font-bold text-[#4E1E7A]">
                 {formatPrice(totalPrice)}
               </span>
               <span className="text-[10px] text-[#7A7188] block">Total Rate</span>
@@ -273,7 +273,7 @@ Please confirm room availability and payment instructions.`;
               className="w-full py-3.5 bg-gradient-to-r from-[#4E1E7A] to-[#381259] hover:from-[#3D1463] hover:to-[#2B0A48] text-white text-xs font-bold tracking-[0.16em] uppercase rounded-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-purple-950/20 active:scale-95 border border-[#642B9B]/40"
             >
               <MessageCircle className="w-4 h-4 text-[#C49B55]" />
-              <span>CONFIRM DIRECT RESERVATION (INSTANT CONCIERGE)</span>
+              <span>CONFIRM DIRECT RESERVATION</span>
             </button>
 
             <a
@@ -281,7 +281,7 @@ Please confirm room availability and payment instructions.`;
               className="w-full py-2.5 bg-[#FAF7FC] hover:bg-[#F3EBF9] text-[#4E1E7A] border border-[#E4D5F2] text-xs font-semibold tracking-wider uppercase rounded-xs transition-colors flex items-center justify-center gap-2"
             >
               <Phone className="w-3.5 h-3.5 text-[#C49B55]" />
-              <span>CALL FRONT DESK: {currentBranchObj.phone}</span>
+              <span>CALL FRONT DESK: {currentBranchObj.phone.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3')}</span>
             </a>
           </div>
 
@@ -301,10 +301,10 @@ Please confirm room availability and payment instructions.`;
                 <span>{copiedBank ? 'Copied!' : 'Copy'}</span>
               </button>
             </div>
-            <div className="font-mono text-[11px] text-[#3F3949]">
+            <div className="text-xs text-[#3F3949] space-y-0.5">
               <div>Bank: <strong>{HOTEL_HERITAGE.bankDetails.bankName}</strong></div>
               <div>Account Name: <strong>{HOTEL_HERITAGE.bankDetails.accountName}</strong></div>
-              <div>Account No: <strong className="text-[#4E1E7A] text-xs font-bold">{HOTEL_HERITAGE.bankDetails.accountNumber}</strong></div>
+              <div>Account No: <strong className="text-[#4E1E7A] text-sm font-bold tracking-wider">{HOTEL_HERITAGE.bankDetails.accountNumber}</strong></div>
             </div>
           </div>
         </form>

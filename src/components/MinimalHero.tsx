@@ -222,12 +222,12 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
         {/* SLIDER CONTROL STRIP (Naturally positioned above reservation bar - zero overlap) */}
         <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-20 w-full mb-2.5 sm:mb-3 flex items-center justify-between text-white/70 select-none z-20">
           {/* Slide counter & active caption */}
-          <div className="flex items-center gap-2 text-xs font-mono">
-            <span className="text-[#C49B55] font-bold text-sm sm:text-base">
+          <div className="flex items-center gap-2 text-xs">
+            <span className="text-[#C49B55] font-bold text-sm sm:text-base font-cinzel tracking-wider">
               {String(current + 1).padStart(2, '0')}
             </span>
             <span className="text-white/30">/</span>
-            <span className="text-white/60">
+            <span className="text-white/60 font-cinzel">
               {String(SLIDES.length).padStart(2, '0')}
             </span>
             <span className="hidden sm:inline text-white/20 mx-1">•</span>
@@ -307,7 +307,7 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
                 {/* Location: 2 columns on mobile, 1 col on desktop */}
                 <div className="col-span-2 sm:col-span-1 lg:col-span-1 flex flex-col gap-1">
-                  <label htmlFor="hero-branch" className="text-[9px] font-bold tracking-[0.22em] uppercase text-[#C49B55]/90 font-cinzel flex items-center gap-1">
+                  <label htmlFor="hero-branch" className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C49B55]/90 font-cinzel flex items-center gap-1">
                     <MapPin className="w-2.5 h-2.5" /> LOCATION
                   </label>
                   <select
@@ -325,7 +325,7 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
 
                 {/* Check-In: 1 column on mobile, 1 col on desktop */}
                 <div className="col-span-1 flex flex-col gap-1">
-                  <label htmlFor="hero-checkin" className="text-[9px] font-bold tracking-[0.22em] uppercase text-[#C49B55]/90 font-cinzel flex items-center gap-1">
+                  <label htmlFor="hero-checkin" className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C49B55]/90 font-cinzel flex items-center gap-1">
                     <Calendar className="w-2.5 h-2.5" /> CHECK-IN
                   </label>
                   <input
@@ -334,14 +334,14 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
                     value={checkIn}
                     min={today}
                     onChange={(e) => setCheckIn(e.target.value)}
-                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-2.5 sm:px-3 py-2.5 focus:outline-none transition-colors cursor-pointer font-mono w-full"
+                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-2.5 sm:px-3 py-2.5 focus:outline-none transition-colors cursor-pointer w-full"
                     style={{ colorScheme: 'dark' }}
                   />
                 </div>
 
                 {/* Check-Out: 1 column on mobile, 1 col on desktop */}
                 <div className="col-span-1 flex flex-col gap-1">
-                  <label htmlFor="hero-checkout" className="text-[9px] font-bold tracking-[0.22em] uppercase text-[#C49B55]/90 font-cinzel flex items-center gap-1">
+                  <label htmlFor="hero-checkout" className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C49B55]/90 font-cinzel flex items-center gap-1">
                     <Calendar className="w-2.5 h-2.5" /> CHECK-OUT
                   </label>
                   <input
@@ -350,7 +350,7 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
                     value={checkOut}
                     min={checkIn}
                     onChange={(e) => setCheckOut(e.target.value)}
-                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-2.5 sm:px-3 py-2.5 focus:outline-none transition-colors cursor-pointer font-mono w-full"
+                    className="bg-white/10 hover:bg-white/14 border border-white/15 focus:border-[#C49B55] text-white text-xs rounded-xs px-2.5 sm:px-3 py-2.5 focus:outline-none transition-colors cursor-pointer w-full"
                     style={{ colorScheme: 'dark' }}
                   />
                 </div>

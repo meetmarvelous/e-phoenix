@@ -71,10 +71,10 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({ onOpenBooking }) =
 
           <a
             href={`tel:${HOTEL_HERITAGE.primaryPhone}`}
-            className="flex items-center gap-1.5 text-xs text-[#2D223F] hover:text-[#4E1E7A] font-semibold transition-colors tracking-wider font-mono py-1.5 px-2.5"
+            className="flex items-center gap-1.5 text-xs text-[#2D223F] hover:text-[#4E1E7A] font-semibold transition-colors tracking-wide py-1.5 px-2.5"
           >
             <Phone className="w-3.5 h-3.5 text-[#C49B55]" />
-            <span>{HOTEL_HERITAGE.primaryPhone}</span>
+            <span>{HOTEL_HERITAGE.primaryPhone.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3')}</span>
           </a>
 
           <button
@@ -126,7 +126,9 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({ onOpenBooking }) =
             {/* Quick Contact & Heritage Note */}
             <div className="mb-4 pb-4 border-b border-[#f1e8f8] text-xs text-[#6e6280] flex items-center justify-between">
               <span>Established 1981 • Ilorin, Kwara</span>
-              <span className="text-[#4e1e7a] font-mono font-bold">07065023672</span>
+              <a href={`tel:${HOTEL_HERITAGE.primaryPhone}`} className="text-[#4e1e7a] font-semibold">
+                {HOTEL_HERITAGE.primaryPhone.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3')}
+              </a>
             </div>
 
             <nav className="flex flex-col space-y-3.5">

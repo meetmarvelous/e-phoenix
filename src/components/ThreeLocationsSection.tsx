@@ -93,9 +93,9 @@ export const ThreeLocationsSection: React.FC<ThreeLocationsSectionProps> = ({
               <div className="p-6 pt-0 border-t border-[#ECE5F3] mt-auto">
                 <div className="flex items-center justify-between text-xs text-[#3F3949] py-3 mb-3">
                   <span className="text-[#7A7188]">Direct Line:</span>
-                  <a href={`tel:${branch.phone}`} className="font-mono text-[#4E1E7A] font-semibold hover:underline flex items-center gap-1">
-                    <Phone className="w-3 h-3" />
-                    <span>{branch.phone}</span>
+                  <a href={`tel:${branch.phone}`} className="text-[#4E1E7A] font-semibold tracking-wide hover:underline flex items-center gap-1">
+                    <Phone className="w-3 h-3 text-[#C49B55]" />
+                    <span>{branch.phone.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3')}</span>
                   </a>
                 </div>
 
