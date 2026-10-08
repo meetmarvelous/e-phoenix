@@ -32,7 +32,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#FAFAFC] text-[#1F1929] selection:bg-[#4E1E7A] selection:text-white pb-14 md:pb-0 font-sans">
       {/* Sleek Minimalist Navigation */}
-      <MinimalNavbar onOpenBooking={() => handleOpenBooking()} />
+      <MinimalNavbar
+        onOpenBooking={() => handleOpenBooking()}
+        onSelectBranchFilter={handleSelectBranchFilter}
+      />
 
       <main>
         {/* Mobile-First Hero with Instant Property & Availability Finder */}
