@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ALL_ROOMS, RealRoom } from '../data/hotelRealData';
 import { GalleryItem } from '../data/galleryData';
 import { MinimalNavbar } from './MinimalNavbar';
+import { MinimalFooter } from './MinimalFooter';
 import { RoomCardItem, formatPrice, getBranchBadgeColor } from './UnifiedRoomsSection';
 import {
   Crown,
@@ -313,6 +314,9 @@ export const FullRoomsPage: React.FC<FullRoomsPageProps> = ({
           </div>
         )}
       </main>
+
+      {/* Luxury Footer */}
+      <MinimalFooter />
 
       {/* FAST ROOM PHOTO VIEWER MODAL */}
       <AnimatePresence>

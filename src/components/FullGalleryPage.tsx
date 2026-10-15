@@ -19,6 +19,7 @@ import {
   Film,
 } from 'lucide-react';
 import { MinimalNavbar } from './MinimalNavbar';
+import { MinimalFooter } from './MinimalFooter';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface FullGalleryPageProps {
@@ -266,6 +267,9 @@ export const FullGalleryPage: React.FC<FullGalleryPageProps> = ({
           })}
         </div>
       </main>
+
+      {/* Luxury Footer */}
+      <MinimalFooter />
 
       {/* FULLSCREEN LIGHTBOX VIEWER */}
       <AnimatePresence>
