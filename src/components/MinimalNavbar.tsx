@@ -290,17 +290,6 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
           >
             RESERVE
           </button>
-
-          {isOverlayPage && (
-            <button
-              onClick={closeCurrentOverlay}
-              className="p-1.5 rounded-full text-[#7A7188] hover:text-[#4E1E7A] hover:bg-[#FAF4FF] transition-colors cursor-pointer border border-[#E5DAEE] ml-0.5 flex items-center justify-center"
-              title="Return to Hotel Overview"
-              aria-label="Close view and return to hotel overview"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          )}
         </div>
 
         {/* Mobile & Tablet Right Controls */}
@@ -328,17 +317,6 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-
-          {isOverlayPage && (
-            <button
-              onClick={closeCurrentOverlay}
-              className="p-1.5 rounded-full text-[#7A7188] hover:text-[#4E1E7A] hover:bg-purple-50 transition-colors"
-              title="Return to Hotel Overview"
-              aria-label="Close view and return to hotel overview"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          )}
         </div>
       </div>
 
@@ -378,21 +356,6 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
                 </a>
               ))}
             </nav>
-
-            {isOverlayPage && (
-              <div className="mt-4 pt-3 border-t border-[#f1e8f8]">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    closeCurrentOverlay();
-                  }}
-                  className="w-full py-2.5 bg-[#FAF7FC] hover:bg-[#F3EBF9] text-[#4E1E7A] border border-[#E5DAEE] text-xs font-bold tracking-wider uppercase rounded-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-                >
-                  <ArrowRight className="w-3.5 h-3.5 rotate-180 text-[#C49B55]" />
-                  <span>RETURN TO HOTEL OVERVIEW</span>
-                </button>
-              </div>
-            )}
 
             <div className="mt-6 pt-5 border-t border-[#f1e8f8] flex flex-col gap-2.5">
               <button
