@@ -4,7 +4,6 @@ import { MinimalHero } from './components/MinimalHero';
 import { KeyPerksSection } from './components/KeyPerksSection';
 import { UnifiedRoomsSection } from './components/UnifiedRoomsSection';
 import { ThreeLocationsSection } from './components/ThreeLocationsSection';
-import { FacilitiesShowcase } from './components/FacilitiesShowcase';
 import { GallerySection } from './components/GallerySection';
 import { HeritageSection } from './components/HeritageSection';
 import { MinimalFooter } from './components/MinimalFooter';
@@ -71,10 +70,7 @@ export default function App() {
           onFilterBranchRooms={(branchId) => handleSelectBranchFilter(branchId)}
         />
 
-        {/* Real Facilities Showcase (Swimming Pool, Restaurant, Event Halls, Rooftop Bar) */}
-        <FacilitiesShowcase />
-
-        {/* Visual Journey & Comprehensive 80+ Photo & Video Gallery */}
+        {/* Visual Journey & Comprehensive 80+ Photo & Video Gallery (covers facilities, dining & poolside) */}
         <GallerySection
           onOpenBookingForRoom={(roomId) => {
             const found = ALL_ROOMS.find((r) => r.id === roomId);
