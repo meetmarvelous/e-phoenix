@@ -5,6 +5,7 @@ import { KeyPerksSection } from './components/KeyPerksSection';
 import { UnifiedRoomsSection } from './components/UnifiedRoomsSection';
 import { ThreeLocationsSection } from './components/ThreeLocationsSection';
 import { GallerySection } from './components/GallerySection';
+import { FullGalleryPage } from './components/FullGalleryPage';
 import { HeritageSection } from './components/HeritageSection';
 import { MinimalFooter } from './components/MinimalFooter';
 import { MobileQuickBar } from './components/MobileQuickBar';
@@ -15,6 +16,8 @@ export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedRoomToBook, setSelectedRoomToBook] = useState<RealRoom | null>(null);
   const [branchFilter, setBranchFilter] = useState<string>('all');
+  const [isFullGalleryOpen, setIsFullGalleryOpen] = useState(false);
+  const [fullGalleryCategory, setFullGalleryCategory] = useState<string>('all');
   const [bookingPreFill, setBookingPreFill] = useState<{
     checkIn?: string;
     checkOut?: string;
@@ -70,15 +73,11 @@ export default function App() {
           onFilterBranchRooms={(branchId) => handleSelectBranchFilter(branchId)}
         />
 
-        {/* Visual Journey & Comprehensive 80+ Photo & Video Gallery (covers facilities, dining & poolside) */}
+        {/* Visual Journey & 1-Photo-Per-Category Showcase */}
         <GallerySection
-          onOpenBookingForRoom={(roomId) => {
-            const found = ALL_ROOMS.find((r) => r.id === roomId);
-            if (found) {
-              handleOpenBooking(found);
-            } else {
-              handleOpenBooking();
-            }
+          onOpenFullGallery={(cat) => {
+            setFullGalleryCategory(cat || 'all');
+            setIsFullGalleryOpen(true);
           }}
         />
 
@@ -101,6 +100,21 @@ export default function App() {
         }}
         selectedRoom={selectedRoomToBook}
         preFill={bookingPreFill}
+      />
+
+      {/* Dedicated Full Photo & Video Gallery Page (Complete 80+ Photo Archive) */}
+      <FullGalleryPage
+        isOpen={isFullGalleryOpen}
+        onClose={() => setIsFullGalleryOpen(false)}
+        initialCategory={fullGalleryCategory}
+        onOpenBookingForRoom={(roomId) => {
+          const found = ALL_ROOMS.find((r) => r.id === roomId);
+          if (found) {
+            handleOpenBooking(found);
+          } else {
+            handleOpenBooking();
+          }
+        }}
       />
     </div>
   );

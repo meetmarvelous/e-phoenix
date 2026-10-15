@@ -338,27 +338,28 @@ const RoomCardItem: React.FC<RoomCardItemProps> = ({
   getBranchBadgeColor,
   formatPrice,
 }) => {
-  const galleryPhotos = ROOM_PHOTOS_MAP[room.id] || [];
-  // Ensure the card has an array with at least the default room image
-  const displayPhotos: GalleryItem[] =
-    galleryPhotos.length > 0
-      ? galleryPhotos
-      : [
-          {
-            id: `${room.id}_default`,
-            title: room.name,
-            category: 'rooms',
-            categoryLabel: 'Suites',
-            roomId: room.id,
-            roomName: room.name,
-            src: room.image,
-            width: 1200,
-            height: 800,
-            orientation: 'landscape',
-            aspectRatio: 1.5,
-            caption: room.name,
-          },
-        ];
+  // The original photo MUST always be the first picture (index 0)
+  const originalPhoto: GalleryItem = {
+    id: `${room.id}_original`,
+    title: `${room.name} — Main View`,
+    category: 'rooms',
+    categoryLabel: 'Suites & Rooms',
+    roomId: room.id,
+    roomName: room.name,
+    src: room.image,
+    width: 1200,
+    height: 800,
+    orientation: 'landscape',
+    aspectRatio: 1.5,
+    caption: `${room.name} at ${room.branchName}.`,
+  };
+
+  const additionalPhotos = (ROOM_PHOTOS_MAP[room.id] || []).filter(
+    (p) => p.src !== room.image
+  );
+
+  // Original photo first, then additional gallery photos after
+  const displayPhotos: GalleryItem[] = [originalPhoto, ...additionalPhotos];
 
   const [activePhotoIdx, setActivePhotoIdx] = useState(0);
   const currentPhoto = displayPhotos[activePhotoIdx] || displayPhotos[0];
