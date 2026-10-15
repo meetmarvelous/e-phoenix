@@ -48,14 +48,14 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenBooking })
           <span className="text-xs font-semibold text-[#4E1E7A]">Concierge</span>
         </a>
 
-        {/* Primary Reserve Room Action */}
+        {/* Primary Booking Action */}
         <button
           onClick={onOpenBooking}
-          className="flex-1 h-10 px-3 bg-gradient-to-r from-[#4E1E7A] via-[#5C2391] to-[#381259] hover:from-[#5D2490] hover:to-[#4A1874] text-white rounded-full text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-[0_2px_10px_rgba(78,30,122,0.25)] active:scale-95 transition-all cursor-pointer border border-[#C49B55]/40 min-w-0"
-          aria-label="Reserve a Room"
+          className="flex-1 h-10 px-3.5 bg-gradient-to-r from-[#4E1E7A] via-[#5C2391] to-[#381259] hover:from-[#5D2490] hover:to-[#4A1874] text-white rounded-full text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-[0_2px_10px_rgba(78,30,122,0.25)] active:scale-95 transition-all cursor-pointer border border-[#C49B55]/40 shrink-0"
+          aria-label="Book a Room"
         >
           <Calendar className="w-3.5 h-3.5 text-[#C49B55] shrink-0" />
-          <span className="truncate">Reserve Room</span>
+          <span>BOOK</span>
         </button>
       </div>
     </aside>
