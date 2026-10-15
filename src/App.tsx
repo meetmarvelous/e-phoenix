@@ -107,6 +107,8 @@ export default function App() {
         isOpen={isFullGalleryOpen}
         onClose={() => setIsFullGalleryOpen(false)}
         initialCategory={fullGalleryCategory}
+        onOpenBooking={() => handleOpenBooking()}
+        onSelectBranchFilter={handleSelectBranchFilter}
         onOpenBookingForRoom={(roomId) => {
           const found = ALL_ROOMS.find((r) => r.id === roomId);
           if (found) {

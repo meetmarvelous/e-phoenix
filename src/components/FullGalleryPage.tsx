@@ -17,9 +17,8 @@ import {
   Calendar,
   Eye,
   Film,
-  ArrowLeft,
 } from 'lucide-react';
-import { PhoenixLogo } from './PhoenixLogo';
+import { MinimalNavbar } from './MinimalNavbar';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface FullGalleryPageProps {
@@ -27,6 +26,8 @@ interface FullGalleryPageProps {
   onClose: () => void;
   initialCategory?: string;
   onOpenBookingForRoom?: (roomId: string) => void;
+  onOpenBooking?: () => void;
+  onSelectBranchFilter?: (branchId: string) => void;
 }
 
 export const FullGalleryPage: React.FC<FullGalleryPageProps> = ({
@@ -34,6 +35,8 @@ export const FullGalleryPage: React.FC<FullGalleryPageProps> = ({
   onClose,
   initialCategory = 'all',
   onOpenBookingForRoom,
+  onOpenBooking,
+  onSelectBranchFilter,
 }) => {
   const [activeTab, setActiveTab] = useState<string>(initialCategory);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -90,34 +93,19 @@ export const FullGalleryPage: React.FC<FullGalleryPageProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-[#FAF8FD] overflow-y-auto flex flex-col">
-      {/* Top Sticky Header */}
-      <header className="sticky top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#ECE5F3] px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xs">
-        <div className="flex items-center gap-4">
-          <button
-            onClick={onClose}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#FAF7FC] hover:bg-[#F3EBF9] text-[#4E1E7A] border border-[#E5D5F2] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
-          >
-            <ArrowLeft className="w-4 h-4 text-[#C49B55]" />
-            <span>Back to Hotel</span>
-          </button>
-
-          <PhoenixLogo size="sm" showSubtitle={false} variant="purple" />
-        </div>
-
-        <div className="flex items-center gap-3">
-          <span className="hidden sm:inline text-xs text-[#7A7188] font-medium">
-            Complete Photo Archive ({filteredItems.length} items)
-          </span>
-
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full text-[#7A7188] hover:text-[#1F1929] hover:bg-neutral-100 transition-colors cursor-pointer"
-            aria-label="Close gallery"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-      </header>
+      {/* Pinned Minimal Navbar (Identical to Main Page) */}
+      <MinimalNavbar
+        isGalleryPage={true}
+        onCloseGallery={onClose}
+        onOpenBooking={() => {
+          if (onOpenBooking) {
+            onOpenBooking();
+          } else if (onOpenBookingForRoom) {
+            onOpenBookingForRoom('');
+          }
+        }}
+        onSelectBranchFilter={onSelectBranchFilter}
+      />
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">

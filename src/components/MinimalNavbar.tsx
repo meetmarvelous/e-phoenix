@@ -4,22 +4,31 @@ import { Menu, X, Phone, Calendar, MessageCircle, MapPin, ChevronDown, ArrowRigh
 import { HOTEL_HERITAGE, REAL_BRANCHES } from '../data/hotelRealData';
 import { motion, AnimatePresence } from 'motion/react';
 
-interface MinimalNavbarProps {
+export interface MinimalNavbarProps {
   onOpenBooking: () => void;
   onSelectBranchFilter?: (branchId: string) => void;
+  isGalleryPage?: boolean;
+  onCloseGallery?: () => void;
 }
 
 export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
   onOpenBooking,
   onSelectBranchFilter,
+  isGalleryPage = false,
+  onCloseGallery,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [locationsDropdownOpen, setLocationsDropdownOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState(isGalleryPage ? 'gallery' : 'hero');
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    if (isGalleryPage) {
+      setActiveSection('gallery');
+      return;
+    }
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 40);
@@ -42,7 +51,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isGalleryPage]);
 
   const handleMouseEnterLocations = () => {
     if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
@@ -55,9 +64,46 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
     }, 180);
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    if (isGalleryPage) {
+      e.preventDefault();
+      if (targetId === 'gallery') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      onCloseGallery?.();
+      setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 120);
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isGalleryPage) {
+      e.preventDefault();
+      onCloseGallery?.();
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 120);
+    }
+  };
+
   const handleBranchClick = (branchId: string) => {
     setLocationsDropdownOpen(false);
     setMobileMenuOpen(false);
+    if (isGalleryPage) {
+      onCloseGallery?.();
+      setTimeout(() => {
+        if (onSelectBranchFilter) {
+          onSelectBranchFilter(branchId);
+        }
+        document.getElementById('rooms')?.scrollIntoView({ behavior: 'smooth' });
+      }, 120);
+      return;
+    }
     if (onSelectBranchFilter) {
       onSelectBranchFilter(branchId);
     } else {
@@ -75,12 +121,18 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
 
   return (
     <header
-      id="main-nav"
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md border-b border-[#ECE5F3] shadow-xs"
+      id={isGalleryPage ? 'gallery-nav' : 'main-nav'}
+      className={`${
+        isGalleryPage ? 'sticky top-0 z-40' : 'fixed top-0 left-0 right-0 z-50'
+      } transition-all duration-300 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md border-b border-[#ECE5F3] shadow-xs`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo with Real Crest (Purple variant always) */}
-        <a href="#hero" className="flex items-center gap-3 group">
+        <a
+          href="#hero"
+          onClick={handleLogoClick}
+          className="flex items-center gap-3 group"
+        >
           <PhoenixLogo
             size="sm"
             showSubtitle={true}
@@ -103,6 +155,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
                 >
                   <a
                     href={link.href}
+                    onClick={(e) => handleNavClick(e, link.id)}
                     className={`text-[11px] xl:text-xs font-semibold tracking-[0.14em] uppercase transition-colors flex items-center gap-1 py-1 ${
                       isActive
                         ? 'text-[#4E1E7A] font-bold'
@@ -162,7 +215,10 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
                           <div className="pt-2 mt-1.5 border-t border-[#F2EBF7]">
                             <a
                               href="#locations"
-                              onClick={() => setLocationsDropdownOpen(false)}
+                              onClick={(e) => {
+                                setLocationsDropdownOpen(false);
+                                handleNavClick(e, 'locations');
+                              }}
                               className="text-[10px] font-bold tracking-wider uppercase text-[#4E1E7A] hover:text-[#381259] flex items-center justify-center gap-1.5 py-1"
                             >
                               <span>Explore All Properties & Maps</span>
@@ -181,6 +237,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.id)}
                 className={`text-[11px] xl:text-xs font-semibold tracking-[0.14em] uppercase transition-colors relative py-1 flex flex-col items-center group ${
                   isActive
                     ? 'text-[#4E1E7A] font-bold'
@@ -217,6 +274,17 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
           >
             RESERVE
           </button>
+
+          {isGalleryPage && onCloseGallery && (
+            <button
+              onClick={onCloseGallery}
+              className="p-1.5 rounded-full text-[#7A7188] hover:text-[#4E1E7A] hover:bg-[#FAF4FF] transition-colors cursor-pointer border border-[#E5DAEE] ml-0.5 flex items-center justify-center"
+              title="Return to Hotel Overview"
+              aria-label="Close gallery"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
         </div>
 
         {/* Mobile & Tablet Right Controls */}
@@ -244,6 +312,17 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
+
+          {isGalleryPage && onCloseGallery && (
+            <button
+              onClick={onCloseGallery}
+              className="p-1.5 rounded-full text-[#7A7188] hover:text-[#4E1E7A] hover:bg-purple-50 transition-colors"
+              title="Return to Hotel Overview"
+              aria-label="Close gallery"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
         </div>
       </div>
 
@@ -270,7 +349,10 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    handleNavClick(e, link.id);
+                  }}
                   className="text-sm font-semibold tracking-wider text-[#2d223f] hover:text-[#4e1e7a] transition-colors py-1 flex items-center justify-between"
                 >
                   <span>{link.name}</span>
@@ -281,13 +363,28 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
               ))}
             </nav>
 
+            {isGalleryPage && onCloseGallery && (
+              <div className="mt-4 pt-3 border-t border-[#f1e8f8]">
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onCloseGallery();
+                  }}
+                  className="w-full py-2.5 bg-[#FAF7FC] hover:bg-[#F3EBF9] text-[#4E1E7A] border border-[#E5DAEE] text-xs font-bold tracking-wider uppercase rounded-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <ArrowRight className="w-3.5 h-3.5 rotate-180 text-[#C49B55]" />
+                  <span>RETURN TO HOTEL OVERVIEW</span>
+                </button>
+              </div>
+            )}
+
             <div className="mt-6 pt-5 border-t border-[#f1e8f8] flex flex-col gap-2.5">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenBooking();
                 }}
-                className="w-full py-3 bg-gradient-to-r from-[#4E1E7A] to-[#381259] text-white text-xs font-bold tracking-[0.2em] uppercase rounded-xs flex items-center justify-center gap-2 shadow-sm"
+                className="w-full py-3 bg-gradient-to-r from-[#4E1E7A] to-[#381259] text-white text-xs font-bold tracking-[0.2em] uppercase rounded-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
                 <span>BOOK A ROOM</span>
@@ -297,7 +394,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
                 href={HOTEL_HERITAGE.primaryWhatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 bg-[#F4EDF9] text-[#4E1E7A] border border-[#E5D5F2] text-xs font-semibold tracking-wider text-center rounded-xs flex items-center justify-center gap-2"
+                className="w-full py-2.5 bg-[#F4EDF9] text-[#4E1E7A] border border-[#E5D5F2] text-xs font-semibold tracking-wider text-center rounded-xs flex items-center justify-center gap-2 cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4 text-[#4E1E7A]" />
                 <span>CHAT WITH CONCIERGE</span>
