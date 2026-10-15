@@ -6,6 +6,7 @@ import { UnifiedRoomsSection } from './components/UnifiedRoomsSection';
 import { ThreeLocationsSection } from './components/ThreeLocationsSection';
 import { GallerySection } from './components/GallerySection';
 import { FullGalleryPage } from './components/FullGalleryPage';
+import { FullRoomsPage } from './components/FullRoomsPage';
 import { HeritageSection } from './components/HeritageSection';
 import { MinimalFooter } from './components/MinimalFooter';
 import { MobileQuickBar } from './components/MobileQuickBar';
@@ -18,6 +19,8 @@ export default function App() {
   const [branchFilter, setBranchFilter] = useState<string>('all');
   const [isFullGalleryOpen, setIsFullGalleryOpen] = useState(false);
   const [fullGalleryCategory, setFullGalleryCategory] = useState<string>('all');
+  const [isFullRoomsOpen, setIsFullRoomsOpen] = useState(false);
+  const [fullRoomsBranch, setFullRoomsBranch] = useState<string>('all');
   const [bookingPreFill, setBookingPreFill] = useState<{
     checkIn?: string;
     checkOut?: string;
@@ -66,6 +69,10 @@ export default function App() {
           key={branchFilter}
           initialBranchFilter={branchFilter}
           onSelectRoomToBook={(room) => handleOpenBooking(room)}
+          onOpenFullRooms={(branch) => {
+            setFullRoomsBranch(branch || 'all');
+            setIsFullRoomsOpen(true);
+          }}
         />
 
         {/* The 3 Signature Properties (Main GRA, Annex 1 Fate, Annex 2 Flower Garden) */}
@@ -100,6 +107,20 @@ export default function App() {
         }}
         selectedRoom={selectedRoomToBook}
         preFill={bookingPreFill}
+      />
+
+      {/* Dedicated Standalone Rooms & Accommodations Page (All 19 Suites) */}
+      <FullRoomsPage
+        isOpen={isFullRoomsOpen}
+        onClose={() => setIsFullRoomsOpen(false)}
+        initialBranch={fullRoomsBranch}
+        onSelectRoomToBook={(room) => handleOpenBooking(room)}
+        onOpenBooking={() => handleOpenBooking()}
+        onSelectBranchFilter={handleSelectBranchFilter}
+        onOpenFullGallery={() => {
+          setIsFullRoomsOpen(false);
+          setIsFullGalleryOpen(true);
+        }}
       />
 
       {/* Dedicated Full Photo & Video Gallery Page (Complete 80+ Photo Archive) */}

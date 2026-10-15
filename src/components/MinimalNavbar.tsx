@@ -9,6 +9,8 @@ export interface MinimalNavbarProps {
   onSelectBranchFilter?: (branchId: string) => void;
   isGalleryPage?: boolean;
   onCloseGallery?: () => void;
+  isRoomsPage?: boolean;
+  onCloseRooms?: () => void;
 }
 
 export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
@@ -16,16 +18,30 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
   onSelectBranchFilter,
   isGalleryPage = false,
   onCloseGallery,
+  isRoomsPage = false,
+  onCloseRooms,
 }) => {
+  const isOverlayPage = isGalleryPage || isRoomsPage;
+  const closeCurrentOverlay = () => {
+    if (isGalleryPage) onCloseGallery?.();
+    if (isRoomsPage) onCloseRooms?.();
+  };
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [locationsDropdownOpen, setLocationsDropdownOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState(isGalleryPage ? 'gallery' : 'hero');
+  const [activeSection, setActiveSection] = useState(
+    isGalleryPage ? 'gallery' : isRoomsPage ? 'rooms' : 'hero'
+  );
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (isGalleryPage) {
       setActiveSection('gallery');
+      return;
+    }
+    if (isRoomsPage) {
+      setActiveSection('rooms');
       return;
     }
 
@@ -51,7 +67,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isGalleryPage]);
+  }, [isGalleryPage, isRoomsPage]);
 
   const handleMouseEnterLocations = () => {
     if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
@@ -65,13 +81,13 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
   };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    if (isGalleryPage) {
+    if (isOverlayPage) {
       e.preventDefault();
-      if (targetId === 'gallery') {
+      if ((isGalleryPage && targetId === 'gallery') || (isRoomsPage && targetId === 'rooms')) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
       }
-      onCloseGallery?.();
+      closeCurrentOverlay();
       setTimeout(() => {
         const el = document.getElementById(targetId);
         if (el) {
@@ -82,9 +98,9 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
   };
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (isGalleryPage) {
+    if (isOverlayPage) {
       e.preventDefault();
-      onCloseGallery?.();
+      closeCurrentOverlay();
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 120);
@@ -94,8 +110,8 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
   const handleBranchClick = (branchId: string) => {
     setLocationsDropdownOpen(false);
     setMobileMenuOpen(false);
-    if (isGalleryPage) {
-      onCloseGallery?.();
+    if (isOverlayPage) {
+      closeCurrentOverlay();
       setTimeout(() => {
         if (onSelectBranchFilter) {
           onSelectBranchFilter(branchId);
@@ -275,12 +291,12 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
             RESERVE
           </button>
 
-          {isGalleryPage && onCloseGallery && (
+          {isOverlayPage && (
             <button
-              onClick={onCloseGallery}
+              onClick={closeCurrentOverlay}
               className="p-1.5 rounded-full text-[#7A7188] hover:text-[#4E1E7A] hover:bg-[#FAF4FF] transition-colors cursor-pointer border border-[#E5DAEE] ml-0.5 flex items-center justify-center"
               title="Return to Hotel Overview"
-              aria-label="Close gallery"
+              aria-label="Close view and return to hotel overview"
             >
               <X className="w-4 h-4" />
             </button>
@@ -313,12 +329,12 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
 
-          {isGalleryPage && onCloseGallery && (
+          {isOverlayPage && (
             <button
-              onClick={onCloseGallery}
+              onClick={closeCurrentOverlay}
               className="p-1.5 rounded-full text-[#7A7188] hover:text-[#4E1E7A] hover:bg-purple-50 transition-colors"
               title="Return to Hotel Overview"
-              aria-label="Close gallery"
+              aria-label="Close view and return to hotel overview"
             >
               <X className="w-4 h-4" />
             </button>
@@ -363,12 +379,12 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
               ))}
             </nav>
 
-            {isGalleryPage && onCloseGallery && (
+            {isOverlayPage && (
               <div className="mt-4 pt-3 border-t border-[#f1e8f8]">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    onCloseGallery();
+                    closeCurrentOverlay();
                   }}
                   className="w-full py-2.5 bg-[#FAF7FC] hover:bg-[#F3EBF9] text-[#4E1E7A] border border-[#E5DAEE] text-xs font-bold tracking-wider uppercase rounded-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                 >

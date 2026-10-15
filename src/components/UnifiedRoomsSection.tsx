@@ -26,14 +26,31 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-interface UnifiedRoomsSectionProps {
+export interface UnifiedRoomsSectionProps {
   initialBranchFilter?: string;
   onSelectRoomToBook: (room: RealRoom) => void;
+  onOpenFullRooms?: (branch?: string) => void;
 }
+
+export const formatPrice = (p: number) => `₦${p.toLocaleString('en-NG')}`;
+
+export const getBranchBadgeColor = (branch: string) => {
+  switch (branch) {
+    case 'main':
+      return 'bg-white/95 text-[#4E1E7A] border-[#DCC7EE] shadow-xs';
+    case 'annex1':
+      return 'bg-white/95 text-[#3D1E6D] border-[#D8C7ED] shadow-xs';
+    case 'annex2':
+      return 'bg-[#FAF6EF] text-[#856729] border-[#E8D8B6] shadow-xs';
+    default:
+      return 'bg-white/95 text-[#4E1E7A] border-[#DCC7EE] shadow-xs';
+  }
+};
 
 export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
   initialBranchFilter = 'all',
   onSelectRoomToBook,
+  onOpenFullRooms,
 }) => {
   const [activeBranch, setActiveBranch] = useState<string>(initialBranchFilter);
   const [priceFilter, setPriceFilter] = useState<'all' | 'budget' | 'executive' | 'luxury'>('all');
@@ -54,7 +71,7 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
     {
       key: 'main',
       label: 'Main GRA Flagship',
-      shortLabel: 'Main GRA',
+      shortLabel: 'Main Flagship',
       count: ALL_ROOMS.filter((r) => r.branch === 'main').length,
       icon: Crown,
     },
@@ -83,20 +100,8 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
     return branchMatches && priceMatches;
   });
 
-  const formatPrice = (p: number) => `₦${p.toLocaleString('en-NG')}`;
-
-  const getBranchBadgeColor = (branch: string) => {
-    switch (branch) {
-      case 'main':
-        return 'bg-white/95 text-[#4E1E7A] border-[#DCC7EE] shadow-xs';
-      case 'annex1':
-        return 'bg-white/95 text-[#3D1E6D] border-[#D8C7ED] shadow-xs';
-      case 'annex2':
-        return 'bg-[#FAF6EF] text-[#856729] border-[#E8D8B6] shadow-xs';
-      default:
-        return 'bg-white/95 text-[#4E1E7A] border-[#DCC7EE] shadow-xs';
-    }
-  };
+  // Curated showcase: show only 3 rooms on the main page to keep the layout compact and high-converting
+  const displayedRooms = filteredRooms.slice(0, 3);
 
   return (
     <section id="rooms" className="py-14 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-[#ECE5F3]">
@@ -230,10 +235,10 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
           )}
         </div>
 
-        {/* Room Cards Grid */}
+        {/* Room Cards Grid (Curated 3-Room Showcase on Main Page) */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <AnimatePresence>
-            {filteredRooms.map((room) => (
+            {displayedRooms.map((room) => (
               <RoomCardItem
                 key={room.id}
                 room={room}
@@ -247,6 +252,24 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* View More Rooms Button -> Opens Standalone Complete Room Page */}
+        <div className="mt-10 sm:mt-12 text-center">
+          <button
+            onClick={() => onOpenFullRooms?.(activeBranch)}
+            className="px-7 py-3.5 bg-gradient-to-r from-[#4E1E7A] to-[#381259] hover:from-[#5D2490] hover:to-[#4A1874] text-white text-xs font-bold tracking-[0.16em] uppercase rounded-xs transition-all shadow-md hover:shadow-purple-900/30 active:scale-95 cursor-pointer border border-[#C49B55]/40 inline-flex items-center gap-2.5 group"
+          >
+            <span>
+              {filteredRooms.length > displayedRooms.length
+                ? `View More Rooms (${filteredRooms.length} Available)`
+                : `Explore All 19 Suites & Accommodations`}
+            </span>
+            <ArrowRight className="w-4 h-4 text-[#C49B55] group-hover:translate-x-1 transition-transform" />
+          </button>
+          <p className="text-[11.5px] text-[#716484] mt-2.5 font-light">
+            Showing {displayedRooms.length} of {filteredRooms.length} suites • Click above to explore the complete catalog with all photos & rates
+          </p>
+        </div>
 
         {/* Call to Gallery Section */}
         <div className="mt-14 sm:mt-18 p-6 sm:p-8 bg-[#FAF8FD] rounded-xs border border-[#ECE5F3] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
@@ -419,7 +442,7 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
 };
 
 // INDIVIDUAL ROOM CARD WITH FAST LOCAL PHOTO SWITCHING
-interface RoomCardItemProps {
+export interface RoomCardItemProps {
   room: RealRoom;
   onSelectRoomToBook: (room: RealRoom) => void;
   onInspectRoom: (room: RealRoom, photos: GalleryItem[], startIdx: number) => void;
@@ -427,7 +450,7 @@ interface RoomCardItemProps {
   formatPrice: (p: number) => string;
 }
 
-const RoomCardItem: React.FC<RoomCardItemProps> = ({
+export const RoomCardItem: React.FC<RoomCardItemProps> = ({
   room,
   onSelectRoomToBook,
   onInspectRoom,
