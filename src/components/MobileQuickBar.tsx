@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Calendar } from 'lucide-react';
 import { HOTEL_HERITAGE } from '../data/hotelRealData';
 
@@ -7,10 +7,34 @@ interface MobileQuickBarProps {
 }
 
 export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenBooking }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSearchBtn = document.getElementById('hero-search-btn');
+      if (heroSearchBtn) {
+        const rect = heroSearchBtn.getBoundingClientRect();
+        // If the hero search button is currently inside the bottom dock zone, hide the dock
+        const isSearchBtnCovered = rect.top < window.innerHeight && rect.bottom > window.innerHeight - 110;
+        const isAtHeroTop = window.scrollY < 240;
+        setIsVisible(!isSearchBtnCovered && !isAtHeroTop);
+      } else {
+        // On standalone pages or views without the hero search button, show after subtle scroll
+        setIsVisible(window.scrollY > 60);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <aside
       aria-label="Mobile quick actions"
-      className="md:hidden fixed bottom-3 inset-x-3 max-w-md mx-auto z-40 pointer-events-none"
+      className={`md:hidden fixed bottom-3 inset-x-3 max-w-md mx-auto z-40 transition-all duration-300 ease-out pointer-events-none ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+      }`}
     >
       <div className="pointer-events-auto bg-white/95 backdrop-blur-xl border border-[#E8DEF2] shadow-[0_12px_36px_rgba(45,18,78,0.18)] rounded-full py-1.5 px-2.5 flex items-center gap-1.5">
         {/* Direct Call button */}
