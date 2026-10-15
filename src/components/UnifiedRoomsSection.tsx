@@ -120,10 +120,11 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
         </div>
 
         {/* Modern Luxury Filter Control System */}
+        {/* Modern Luxury Filter Control System (Zero Scroll on Mobile) */}
         <div className="max-w-4xl mx-auto mb-10 sm:mb-14">
           {/* Property Branch Segmented Control */}
-          <div className="p-1 sm:p-1.5 rounded-full bg-[#FAF5FD] border border-[#E9DFF2] shadow-xs">
-            <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar scroll-smooth snap-x justify-start sm:justify-center p-0.5">
+          <div className="p-1 sm:p-1.5 rounded-2xl sm:rounded-full bg-[#FAF5FD] border border-[#E9DFF2] shadow-xs">
+            <div className="grid grid-cols-2 sm:flex sm:items-center sm:justify-center gap-1 sm:gap-2 p-0.5">
               {branches.map((b) => {
                 const IconComponent = b.icon;
                 const isActive = activeBranch === b.key;
@@ -131,7 +132,7 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
                   <button
                     key={b.key}
                     onClick={() => setActiveBranch(b.key)}
-                    className={`relative px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer shrink-0 snap-center flex items-center gap-2 group ${
+                    className={`relative px-2.5 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-xs font-semibold tracking-wider transition-all duration-200 cursor-pointer flex items-center justify-between sm:justify-center gap-1.5 sm:gap-2 group ${
                       isActive
                         ? 'text-white font-bold'
                         : 'text-[#4A3D5D] hover:text-[#4E1E7A] hover:bg-white/70'
@@ -140,13 +141,13 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
                     {isActive && (
                       <motion.div
                         layoutId="activeRoomBranchPill"
-                        className="absolute inset-0 bg-gradient-to-r from-[#4E1E7A] to-[#381259] rounded-full shadow-md shadow-purple-950/25 border border-[#C49B55]/40"
+                        className="absolute inset-0 bg-gradient-to-r from-[#4E1E7A] to-[#381259] rounded-xl sm:rounded-full shadow-md shadow-purple-950/25 border border-[#C49B55]/40"
                         transition={{ type: 'spring', stiffness: 450, damping: 32 }}
                       />
                     )}
-                    <span className="relative z-10 flex items-center gap-1.5">
+                    <span className="relative z-10 flex items-center gap-1.5 truncate">
                       <IconComponent
-                        className={`w-3.5 h-3.5 transition-colors ${
+                        className={`w-3.5 h-3.5 shrink-0 transition-colors ${
                           isActive ? 'text-[#EBD7A9]' : 'text-[#7D6B94] group-hover:text-[#4E1E7A]'
                         }`}
                       />
@@ -154,7 +155,7 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
                       <span className="inline sm:hidden">{b.shortLabel}</span>
                     </span>
                     <span
-                      className={`relative z-10 text-[10.5px] px-1.5 py-0.2 rounded-full font-mono transition-colors ${
+                      className={`relative z-10 text-[10.5px] px-1.5 py-0.5 rounded-full font-mono shrink-0 transition-colors ${
                         isActive
                           ? 'bg-white/20 text-[#F5E8C8]'
                           : 'bg-[#EDE4F5] text-[#695B7D] group-hover:bg-[#E2D2EE]'
@@ -168,35 +169,43 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
             </div>
           </div>
 
-          {/* Secondary Rate / Budget Selector Chips */}
-          <div className="mt-3.5 flex items-center justify-center flex-wrap gap-2 text-xs">
-            <span className="inline-flex items-center gap-1.5 text-[10.5px] font-bold tracking-[0.16em] uppercase text-[#7A6D8E] font-cinzel mr-1">
+          {/* Secondary Rate / Budget Selector Chips (Zero Scroll on Mobile) */}
+          <div className="mt-3 sm:mt-3.5">
+            <div className="flex sm:hidden items-center justify-center gap-1.5 mb-2 text-[10px] font-bold tracking-[0.16em] uppercase text-[#7A6D8E] font-cinzel">
               <SlidersHorizontal className="w-3 h-3 text-[#C49B55]" />
-              <span>Rate Filter:</span>
-            </span>
+              <span>Filter by Nightly Rate</span>
+            </div>
 
-            {[
-              { id: 'all', label: 'All Rates' },
-              { id: 'budget', label: 'Under ₦40,000' },
-              { id: 'executive', label: '₦40,000 – ₦70,000' },
-              { id: 'luxury', label: 'Executive Suites (₦85,000+)' },
-            ].map((pf) => {
-              const isSelected = priceFilter === pf.id;
-              return (
-                <button
-                  key={pf.id}
-                  onClick={() => setPriceFilter(pf.id as any)}
-                  className={`px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium tracking-wide transition-all cursor-pointer flex items-center gap-1.5 ${
-                    isSelected
-                      ? 'bg-white text-[#4E1E7A] font-bold shadow-xs border-2 border-[#C49B55] ring-2 ring-[#4E1E7A]/5'
-                      : 'bg-[#FAF7FC] text-[#625575] hover:text-[#1B112B] hover:bg-white border border-[#E7DAEF]'
-                  }`}
-                >
-                  {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#C49B55]" />}
-                  <span>{pf.label}</span>
-                </button>
-              );
-            })}
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center gap-1.5 sm:gap-2 text-xs">
+              <span className="hidden sm:inline-flex items-center gap-1.5 text-[10.5px] font-bold tracking-[0.16em] uppercase text-[#7A6D8E] font-cinzel mr-1">
+                <SlidersHorizontal className="w-3 h-3 text-[#C49B55]" />
+                <span>Rate Filter:</span>
+              </span>
+
+              {[
+                { id: 'all', label: 'All Rates', shortLabel: 'All Rates' },
+                { id: 'budget', label: 'Under ₦40,000', shortLabel: 'Under ₦40,000' },
+                { id: 'executive', label: '₦40,000 – ₦70,000', shortLabel: '₦40k – ₦70k' },
+                { id: 'luxury', label: 'Executive Suites (₦85,000+)', shortLabel: '₦85,000+ (VIP)' },
+              ].map((pf) => {
+                const isSelected = priceFilter === pf.id;
+                return (
+                  <button
+                    key={pf.id}
+                    onClick={() => setPriceFilter(pf.id as any)}
+                    className={`px-2 sm:px-3 py-1.5 rounded-xl sm:rounded-full text-[11px] sm:text-xs font-medium tracking-wide transition-all cursor-pointer flex items-center justify-center gap-1.5 text-center ${
+                      isSelected
+                        ? 'bg-white text-[#4E1E7A] font-bold shadow-xs border-2 border-[#C49B55] ring-2 ring-[#4E1E7A]/5'
+                        : 'bg-[#FAF7FC] text-[#625575] hover:text-[#1B112B] hover:bg-white border border-[#E7DAEF]'
+                    }`}
+                  >
+                    {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#C49B55] shrink-0" />}
+                    <span className="hidden sm:inline">{pf.label}</span>
+                    <span className="inline sm:hidden">{pf.shortLabel}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Active Filter Counter & Quick Reset */}
