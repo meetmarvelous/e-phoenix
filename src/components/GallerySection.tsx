@@ -26,7 +26,8 @@ interface GallerySectionProps {
 interface CategoryShowcase {
   key: 'rooms' | 'pool' | 'dining' | 'reception' | 'outdoor' | 'video';
   title: string;
-  subtitle: string;
+  tag: string;
+  kicker: string;
   photoCount: number;
   featuredImage: string;
   description: string;
@@ -42,7 +43,8 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
     {
       key: 'rooms',
       title: 'Suites & Accommodations',
-      subtitle: 'Presidential, Senatorial & Classic',
+      tag: 'Suites',
+      kicker: 'Presidential & Executive',
       photoCount: GALLERY_ITEMS.filter((i) => i.category === 'rooms').length,
       featuredImage: '/gallery/rooms/presidential/rooms_presidential_01.jpg',
       description: 'Master suites, executive living rooms, and private en-suite bathrooms across our 3 Ilorin branches.',
@@ -51,7 +53,8 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
     {
       key: 'pool',
       title: 'Poolside & Cocktail Bar',
-      subtitle: 'Resort Oasis at Flower Garden GRA',
+      tag: 'Pool & Bar',
+      kicker: 'Flower Garden GRA Oasis',
       photoCount: GALLERY_ITEMS.filter((i) => i.category === 'pool').length,
       featuredImage: '/gallery/poolside/poolside_01.jpg',
       description: 'Crystal-clear outdoor swimming pool, sunbathing loungers, and evening cocktail cabana.',
@@ -59,8 +62,9 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
     },
     {
       key: 'dining',
-      title: 'Dining & Continental Cuisine',
-      subtitle: 'Fresh Gourmet & Traditional Dishes',
+      title: 'Dining & Cuisine',
+      tag: 'Restaurant',
+      kicker: 'Fresh Gourmet & Buffets',
       photoCount: GALLERY_ITEMS.filter((i) => i.category === 'dining').length,
       featuredImage: '/gallery/restaurant/restaurant_01.jpg',
       description: 'Complimentary hot daily breakfast, executive dining hall, and authentic culinary delicacies.',
@@ -69,7 +73,8 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
     {
       key: 'reception',
       title: 'Grand Diplomatic Lobby',
-      subtitle: '24/7 Front Desk & Concierge',
+      tag: 'Lobby',
+      kicker: '24/7 Diplomatic Reception',
       photoCount: GALLERY_ITEMS.filter((i) => i.category === 'reception').length,
       featuredImage: '/gallery/reception/reception_01.jpg',
       description: 'Distinguished reception foyer, private guest lounges, and attentive round-the-clock service.',
@@ -78,7 +83,8 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
     {
       key: 'outdoor',
       title: 'Grounds & Architecture',
-      subtitle: 'Secure Diplomatic Setting',
+      tag: 'Grounds',
+      kicker: 'Secure Diplomatic Setting',
       photoCount: GALLERY_ITEMS.filter((i) => i.category === 'outdoor').length,
       featuredImage: '/gallery/outdoor/outdoor_01.jpg',
       description: 'Gated private perimeter, manicured landscaped walkways, and spacious on-site guest parking.',
@@ -87,7 +93,8 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
     {
       key: 'video',
       title: 'Virtual Video Tour',
-      subtitle: '60-Second Video Experience',
+      tag: 'Story Tour',
+      kicker: '60-Second Walkthrough',
       photoCount: 1,
       featuredImage: '/gallery/outdoor/outdoor_01.jpg',
       description: 'Watch our official portrait Instagram video walkthrough touring the suites, pool, and dining.',
@@ -165,32 +172,45 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
                           loading="lazy"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
                       </>
                     )}
 
-                    {/* Top Badges */}
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider border border-white/20">
+                    {/* Top Floating Badges */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white/95 text-[10px] font-bold uppercase tracking-wider border border-white/20">
                         <Icon className="w-3 h-3 text-[#C49B55]" />
-                        <span>{cat.subtitle}</span>
+                        <span>{cat.tag}</span>
                       </span>
 
-                      <span className="px-2.5 py-1 rounded-full bg-[#4E1E7A]/90 backdrop-blur-md text-[#EBD7A9] text-[10px] font-bold uppercase tracking-wider border border-[#C49B55]/50 font-cinzel">
-                        {cat.isVideo ? 'VIDEO TOUR' : `${cat.photoCount} PHOTOS`}
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1B112B]/85 backdrop-blur-md text-[#EBD7A9] text-[10.5px] font-semibold tracking-wider border border-[#C49B55]/40 font-mono shadow-md">
+                        {cat.isVideo ? (
+                          <>
+                            <Play className="w-2.5 h-2.5 fill-[#C49B55] text-[#C49B55]" />
+                            <span className="font-cinzel text-[10px]">VIDEO</span>
+                          </>
+                        ) : (
+                          <>
+                            <Camera className="w-3 h-3 text-[#C49B55]" />
+                            <span>{cat.photoCount} Photos</span>
+                          </>
+                        )}
                       </span>
                     </div>
 
                     {/* Bottom Title on Image */}
-                    <div className="absolute bottom-3 left-3 right-3 text-white">
-                      <h3 className="font-playfair text-xl font-bold leading-tight">
+                    <div className="absolute bottom-3 left-3.5 right-3.5 text-white">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C49B55] font-cinzel block mb-0.5">
+                        {cat.kicker}
+                      </span>
+                      <h3 className="font-playfair text-lg sm:text-xl font-bold leading-tight drop-shadow-sm">
                         {cat.title}
                       </h3>
                     </div>
                   </div>
 
                   {/* Card Description */}
-                  <div className="p-5">
+                  <div className="p-4 sm:p-5">
                     <p className="text-xs text-[#5F586D] leading-relaxed font-light">
                       {cat.description}
                     </p>
@@ -198,12 +218,15 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
                 </div>
 
                 {/* Bottom Action Strip */}
-                <div className="p-5 pt-0 border-t border-[#F2EBF7] mt-auto">
+                <div className="p-4 sm:p-5 pt-0 border-t border-[#F2EBF7] mt-auto">
                   <div className="pt-3 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#4E1E7A] group-hover:text-[#381259] transition-colors">
-                    <span>
-                      {cat.isVideo ? 'Watch Video Tour' : `View ${cat.photoCount} Photos`}
+                    <span className="flex items-center gap-1.5">
+                      <span>{cat.isVideo ? 'Watch Video Tour' : `View ${cat.photoCount} Photos`}</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#C49B55] group-hover:translate-x-1 transition-transform" />
                     </span>
-                    <ArrowRight className="w-4 h-4 text-[#C49B55] group-hover:translate-x-1 transition-transform" />
+                    <span className="text-[10.5px] text-[#8E82A0] font-normal normal-case">
+                      Explore →
+                    </span>
                   </div>
                 </div>
               </motion.div>
