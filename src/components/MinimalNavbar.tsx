@@ -25,7 +25,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
       setIsScrolled(scrollY > 40);
 
       // Section scroll spy
-      const sections = ['hero', 'rooms', 'locations', 'facilities', 'heritage', 'contact'];
+      const sections = ['hero', 'rooms', 'locations', 'facilities', 'gallery', 'heritage', 'contact'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -69,6 +69,7 @@ export const MinimalNavbar: React.FC<MinimalNavbarProps> = ({
     { name: 'Suites', href: '#rooms', id: 'rooms', hasDropdown: false },
     { name: 'Locations', href: '#locations', id: 'locations', hasDropdown: true },
     { name: 'Amenities', href: '#facilities', id: 'facilities', hasDropdown: false },
+    { name: 'Gallery', href: '#gallery', id: 'gallery', hasDropdown: false },
     { name: 'Heritage', href: '#heritage', id: 'heritage', hasDropdown: false },
     { name: 'Contact', href: '#contact', id: 'contact', hasDropdown: false },
   ];

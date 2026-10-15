@@ -5,11 +5,12 @@ import { KeyPerksSection } from './components/KeyPerksSection';
 import { UnifiedRoomsSection } from './components/UnifiedRoomsSection';
 import { ThreeLocationsSection } from './components/ThreeLocationsSection';
 import { FacilitiesShowcase } from './components/FacilitiesShowcase';
+import { GallerySection } from './components/GallerySection';
 import { HeritageSection } from './components/HeritageSection';
 import { MinimalFooter } from './components/MinimalFooter';
 import { MobileQuickBar } from './components/MobileQuickBar';
 import { BookingModal } from './components/BookingModal';
-import { RealRoom } from './data/hotelRealData';
+import { RealRoom, ALL_ROOMS } from './data/hotelRealData';
 
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -72,6 +73,18 @@ export default function App() {
 
         {/* Real Facilities Showcase (Swimming Pool, Restaurant, Event Halls, Rooftop Bar) */}
         <FacilitiesShowcase />
+
+        {/* Visual Journey & Comprehensive 80+ Photo & Video Gallery */}
+        <GallerySection
+          onOpenBookingForRoom={(roomId) => {
+            const found = ALL_ROOMS.find((r) => r.id === roomId);
+            if (found) {
+              handleOpenBooking(found);
+            } else {
+              handleOpenBooking();
+            }
+          }}
+        />
 
         {/* Our Heritage: Since 1981 - Ratem Merchant's Heritage */}
         <HeritageSection />
