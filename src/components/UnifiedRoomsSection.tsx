@@ -341,7 +341,7 @@ const RoomCardItem: React.FC<RoomCardItemProps> = ({
   // The original photo MUST always be the first picture (index 0)
   const originalPhoto: GalleryItem = {
     id: `${room.id}_original`,
-    title: `${room.name} — Main View`,
+    title: room.name,
     category: 'rooms',
     categoryLabel: 'Suites & Rooms',
     roomId: room.id,
@@ -351,7 +351,7 @@ const RoomCardItem: React.FC<RoomCardItemProps> = ({
     height: 800,
     orientation: 'landscape',
     aspectRatio: 1.5,
-    caption: `${room.name} at ${room.branchName}.`,
+    caption: 'E-Phoenix Hotel, Ilorin',
   };
 
   const additionalPhotos = (ROOM_PHOTOS_MAP[room.id] || []).filter(

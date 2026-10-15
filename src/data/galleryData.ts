@@ -18,7 +18,7 @@ export interface GalleryItem {
 
 export const VIDEO_TOUR_ITEM: GalleryItem = {
   id: 'video_tour_instagram',
-  title: 'Virtual Video Tour • E-Phoenix Experience',
+  title: 'Virtual Video Tour',
   category: 'video',
   categoryLabel: 'Video Experience',
   src: '/video/ephoenixhotel.mp4',
@@ -27,14 +27,14 @@ export const VIDEO_TOUR_ITEM: GalleryItem = {
   height: 1920,
   orientation: 'portrait',
   aspectRatio: 0.56,
-  caption: 'Experience our diplomatic suites, resort swimming pool, and fine dining across Ilorin in 60 seconds.',
+  caption: 'E-Phoenix Hotel, Ilorin',
   isVideo: true,
 };
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     "id": "rooms_rooms_presidential_1",
-    "title": "Presidential Suite \u2014 Master Bedroom",
+    "title": "Presidential Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pres2",
@@ -44,11 +44,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Presidential Suite \u2014 Master Bedroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_presidential_2",
-    "title": "Presidential Suite \u2014 Private Lounge",
+    "title": "Presidential Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pres2",
@@ -58,11 +58,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Presidential Suite \u2014 Private Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_presidential_3",
-    "title": "Presidential Suite \u2014 Executive Workspace",
+    "title": "Presidential Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pres2",
@@ -72,11 +72,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Presidential Suite \u2014 Executive Workspace at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_presidential_4",
-    "title": "Presidential Suite \u2014 En-Suite Bathroom",
+    "title": "Presidential Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pres2",
@@ -86,11 +86,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Presidential Suite \u2014 En-Suite Bathroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_presidential_5",
-    "title": "Presidential Suite \u2014 Architectural Details",
+    "title": "Presidential Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pres2",
@@ -100,11 +100,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Presidential Suite \u2014 Architectural Details at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_presidential_6",
-    "title": "Presidential Suite \u2014 Suite View",
+    "title": "Presidential Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pres2",
@@ -114,11 +114,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Presidential Suite \u2014 Suite View at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_senatorial_1",
-    "title": "Senatorial Suite \u2014 Master Bedroom",
+    "title": "Senatorial Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sen2",
@@ -128,11 +128,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Senatorial Suite \u2014 Master Bedroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_senatorial_2",
-    "title": "Senatorial Suite \u2014 Private Lounge",
+    "title": "Senatorial Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sen2",
@@ -142,11 +142,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Senatorial Suite \u2014 Private Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_senatorial_3",
-    "title": "Senatorial Suite \u2014 Executive Workspace",
+    "title": "Senatorial Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sen2",
@@ -156,11 +156,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Senatorial Suite \u2014 Executive Workspace at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_senatorial_4",
-    "title": "Senatorial Suite \u2014 En-Suite Bathroom",
+    "title": "Senatorial Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sen2",
@@ -170,11 +170,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Senatorial Suite \u2014 En-Suite Bathroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_senatorial_5",
-    "title": "Senatorial Suite \u2014 Architectural Details",
+    "title": "Senatorial Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sen2",
@@ -184,11 +184,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Senatorial Suite \u2014 Architectural Details at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_senatorial_6",
-    "title": "Senatorial Suite \u2014 Suite View",
+    "title": "Senatorial Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sen2",
@@ -198,11 +198,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Senatorial Suite \u2014 Suite View at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_whitehouse_1",
-    "title": "White House City View \u2014 Master Bedroom",
+    "title": "White House City View",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "whc2",
@@ -212,11 +212,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "White House City View \u2014 Master Bedroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_whitehouse_2",
-    "title": "White House City View \u2014 Private Lounge",
+    "title": "White House City View",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "whc2",
@@ -226,11 +226,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "White House City View \u2014 Private Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_whitehouse_3",
-    "title": "White House City View \u2014 Executive Workspace",
+    "title": "White House City View",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "whc2",
@@ -240,11 +240,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "White House City View \u2014 Executive Workspace at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_whitehouse_4",
-    "title": "White House City View \u2014 En-Suite Bathroom",
+    "title": "White House City View",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "whc2",
@@ -254,11 +254,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "White House City View \u2014 En-Suite Bathroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_whitehouse_5",
-    "title": "White House City View \u2014 Architectural Details",
+    "title": "White House City View",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "whc2",
@@ -268,11 +268,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "White House City View \u2014 Architectural Details at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_whitehouse_6",
-    "title": "White House City View \u2014 Suite View",
+    "title": "White House City View",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "whc2",
@@ -282,11 +282,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "White House City View \u2014 Suite View at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_poolview_1",
-    "title": "Pool View Suite \u2014 Master Bedroom",
+    "title": "Pool View Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pol2",
@@ -296,11 +296,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Pool View Suite \u2014 Master Bedroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_poolview_2",
-    "title": "Pool View Suite \u2014 Private Lounge",
+    "title": "Pool View Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pol2",
@@ -310,11 +310,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Pool View Suite \u2014 Private Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_poolview_3",
-    "title": "Pool View Suite \u2014 Executive Workspace",
+    "title": "Pool View Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pol2",
@@ -324,11 +324,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Pool View Suite \u2014 Executive Workspace at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_poolview_4",
-    "title": "Pool View Suite \u2014 En-Suite Bathroom",
+    "title": "Pool View Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pol2",
@@ -338,11 +338,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Pool View Suite \u2014 En-Suite Bathroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_poolview_5",
-    "title": "Pool View Suite \u2014 Architectural Details",
+    "title": "Pool View Suite",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "pol2",
@@ -352,11 +352,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Pool View Suite \u2014 Architectural Details at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_cityview_1",
-    "title": "City View Room \u2014 Master Bedroom",
+    "title": "City View Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "cty2",
@@ -366,11 +366,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "City View Room \u2014 Master Bedroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_cityview_2",
-    "title": "City View Room \u2014 Private Lounge",
+    "title": "City View Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "cty2",
@@ -380,11 +380,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "City View Room \u2014 Private Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_cityview_3",
-    "title": "City View Room \u2014 Executive Workspace",
+    "title": "City View Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "cty2",
@@ -394,11 +394,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "City View Room \u2014 Executive Workspace at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_cityview_4",
-    "title": "City View Room \u2014 En-Suite Bathroom",
+    "title": "City View Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "cty2",
@@ -408,11 +408,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "City View Room \u2014 En-Suite Bathroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_cityview_5",
-    "title": "City View Room \u2014 Architectural Details",
+    "title": "City View Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "cty2",
@@ -422,11 +422,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "City View Room \u2014 Architectural Details at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_superdeluxe_1",
-    "title": "Super Deluxe \u2014 Master Bedroom",
+    "title": "Super Deluxe",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sdx2",
@@ -436,11 +436,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Super Deluxe \u2014 Master Bedroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_superdeluxe_2",
-    "title": "Super Deluxe \u2014 Private Lounge",
+    "title": "Super Deluxe",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sdx2",
@@ -450,11 +450,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Super Deluxe \u2014 Private Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_superdeluxe_3",
-    "title": "Super Deluxe \u2014 Executive Workspace",
+    "title": "Super Deluxe",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sdx2",
@@ -464,11 +464,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Super Deluxe \u2014 Executive Workspace at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_superdeluxe_4",
-    "title": "Super Deluxe \u2014 En-Suite Bathroom",
+    "title": "Super Deluxe",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sdx2",
@@ -478,11 +478,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Super Deluxe \u2014 En-Suite Bathroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_superdeluxe_5",
-    "title": "Super Deluxe \u2014 Architectural Details",
+    "title": "Super Deluxe",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sdx2",
@@ -492,11 +492,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Super Deluxe \u2014 Architectural Details at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_deluxe_1",
-    "title": "Deluxe Room \u2014 Master Bedroom",
+    "title": "Deluxe Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "dlx2",
@@ -506,11 +506,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Deluxe Room \u2014 Master Bedroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_deluxe_2",
-    "title": "Deluxe Room \u2014 Private Lounge",
+    "title": "Deluxe Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "dlx2",
@@ -520,11 +520,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Deluxe Room \u2014 Private Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_deluxe_3",
-    "title": "Deluxe Room \u2014 Executive Workspace",
+    "title": "Deluxe Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "dlx2",
@@ -534,11 +534,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Deluxe Room \u2014 Executive Workspace at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_deluxe_4",
-    "title": "Deluxe Room \u2014 En-Suite Bathroom",
+    "title": "Deluxe Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "dlx2",
@@ -548,11 +548,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Deluxe Room \u2014 En-Suite Bathroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_deluxe_5",
-    "title": "Deluxe Room \u2014 Architectural Details",
+    "title": "Deluxe Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "dlx2",
@@ -562,11 +562,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Deluxe Room \u2014 Architectural Details at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_classic_1",
-    "title": "Classic Room \u2014 Master Bedroom",
+    "title": "Classic Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "cls2",
@@ -576,11 +576,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Classic Room \u2014 Master Bedroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_classic_2",
-    "title": "Classic Room \u2014 Private Lounge",
+    "title": "Classic Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "cls2",
@@ -590,11 +590,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Classic Room \u2014 Private Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_classic_3",
-    "title": "Classic Room \u2014 Executive Workspace",
+    "title": "Classic Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "cls2",
@@ -604,11 +604,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Classic Room \u2014 Executive Workspace at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_classic_4",
-    "title": "Classic Room \u2014 En-Suite Bathroom",
+    "title": "Classic Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "cls2",
@@ -618,11 +618,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Classic Room \u2014 En-Suite Bathroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_classic_5",
-    "title": "Classic Room \u2014 Architectural Details",
+    "title": "Classic Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "cls2",
@@ -632,11 +632,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Classic Room \u2014 Architectural Details at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_standard_1",
-    "title": "Standard Room \u2014 Master Bedroom",
+    "title": "Standard Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sta2",
@@ -646,11 +646,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Standard Room \u2014 Master Bedroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_standard_2",
-    "title": "Standard Room \u2014 Private Lounge",
+    "title": "Standard Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sta2",
@@ -660,11 +660,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Standard Room \u2014 Private Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_standard_3",
-    "title": "Standard Room \u2014 Executive Workspace",
+    "title": "Standard Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sta2",
@@ -674,11 +674,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Standard Room \u2014 Executive Workspace at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_standard_4",
-    "title": "Standard Room \u2014 En-Suite Bathroom",
+    "title": "Standard Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sta2",
@@ -688,11 +688,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Standard Room \u2014 En-Suite Bathroom at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "rooms_rooms_standard_5",
-    "title": "Standard Room \u2014 Architectural Details",
+    "title": "Standard Room",
     "category": "rooms",
     "categoryLabel": "Suites & Rooms",
     "roomId": "sta2",
@@ -702,11 +702,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Standard Room \u2014 Architectural Details at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "pool_poolside_1",
-    "title": "Crystal Swimming Pool & Sun Loungers",
+    "title": "Poolside & Bar",
     "category": "pool",
     "categoryLabel": "Poolside & Bar",
     "roomId": null,
@@ -716,11 +716,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Crystal Swimming Pool & Sun Loungers at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "pool_poolside_2",
-    "title": "Poolside Gazebo & Cocktail Bar",
+    "title": "Poolside & Bar",
     "category": "pool",
     "categoryLabel": "Poolside & Bar",
     "roomId": null,
@@ -730,11 +730,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Poolside Gazebo & Cocktail Bar at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "pool_poolside_3",
-    "title": "Nighttime Poolside Illumination",
+    "title": "Poolside & Bar",
     "category": "pool",
     "categoryLabel": "Poolside & Bar",
     "roomId": null,
@@ -744,11 +744,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Nighttime Poolside Illumination at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "pool_poolside_4",
-    "title": "Resort Oasis Swimming Area",
+    "title": "Poolside & Bar",
     "category": "pool",
     "categoryLabel": "Poolside & Bar",
     "roomId": null,
@@ -758,11 +758,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Resort Oasis Swimming Area at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "pool_poolside_5",
-    "title": "VIP Poolside Dining Cabana",
+    "title": "Poolside & Bar",
     "category": "pool",
     "categoryLabel": "Poolside & Bar",
     "roomId": null,
@@ -772,11 +772,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "VIP Poolside Dining Cabana at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "pool_poolside_6",
-    "title": "Refreshing Outdoor Leisure",
+    "title": "Poolside & Bar",
     "category": "pool",
     "categoryLabel": "Poolside & Bar",
     "roomId": null,
@@ -786,11 +786,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Refreshing Outdoor Leisure at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "pool_poolside_7",
-    "title": "Pool Deck Sunbathing Space",
+    "title": "Poolside & Bar",
     "category": "pool",
     "categoryLabel": "Poolside & Bar",
     "roomId": null,
@@ -800,11 +800,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Pool Deck Sunbathing Space at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "pool_poolside_8",
-    "title": "Evening Poolside Lounge",
+    "title": "Poolside & Bar",
     "category": "pool",
     "categoryLabel": "Poolside & Bar",
     "roomId": null,
@@ -814,11 +814,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Evening Poolside Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "dining_restaurant_1",
-    "title": "Executive Continental Restaurant",
+    "title": "Restaurant & Dining",
     "category": "dining",
     "categoryLabel": "Dining & Cuisine",
     "roomId": null,
@@ -828,11 +828,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Executive Continental Restaurant at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "dining_restaurant_2",
-    "title": "Signature Chef Cuisine & Breakfast",
+    "title": "Restaurant & Dining",
     "category": "dining",
     "categoryLabel": "Dining & Cuisine",
     "roomId": null,
@@ -842,11 +842,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Signature Chef Cuisine & Breakfast at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "dining_restaurant_3",
-    "title": "Private Dining Table Arrangement",
+    "title": "Restaurant & Dining",
     "category": "dining",
     "categoryLabel": "Dining & Cuisine",
     "roomId": null,
@@ -856,11 +856,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Private Dining Table Arrangement at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "dining_restaurant_4",
-    "title": "Gourmet Traditional Delicacies",
+    "title": "Restaurant & Dining",
     "category": "dining",
     "categoryLabel": "Dining & Cuisine",
     "roomId": null,
@@ -870,11 +870,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Gourmet Traditional Delicacies at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "dining_restaurant_5",
-    "title": "Elegant Ambient Dining Room",
+    "title": "Restaurant & Dining",
     "category": "dining",
     "categoryLabel": "Dining & Cuisine",
     "roomId": null,
@@ -884,11 +884,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Elegant Ambient Dining Room at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "dining_restaurant_6",
-    "title": "Fresh Morning Breakfast Buffet",
+    "title": "Restaurant & Dining",
     "category": "dining",
     "categoryLabel": "Dining & Cuisine",
     "roomId": null,
@@ -898,11 +898,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Fresh Morning Breakfast Buffet at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "dining_restaurant_7",
-    "title": "Specialty Grill & Cocktails",
+    "title": "Restaurant & Dining",
     "category": "dining",
     "categoryLabel": "Dining & Cuisine",
     "roomId": null,
@@ -912,11 +912,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Specialty Grill & Cocktails at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "dining_restaurant_8",
-    "title": "Distinguished Guest Dining",
+    "title": "Restaurant & Dining",
     "category": "dining",
     "categoryLabel": "Dining & Cuisine",
     "roomId": null,
@@ -926,11 +926,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Distinguished Guest Dining at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "reception_reception_1",
-    "title": "Grand Diplomatic Reception Desk",
+    "title": "Lobby & Reception",
     "category": "reception",
     "categoryLabel": "Grand Lobby & Reception",
     "roomId": null,
@@ -940,11 +940,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Grand Diplomatic Reception Desk at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "reception_reception_2",
-    "title": "Executive Lobby & Sitting Area",
+    "title": "Lobby & Reception",
     "category": "reception",
     "categoryLabel": "Grand Lobby & Reception",
     "roomId": null,
@@ -954,11 +954,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Executive Lobby & Sitting Area at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "reception_reception_3",
-    "title": "24/7 Front Desk Concierge",
+    "title": "Lobby & Reception",
     "category": "reception",
     "categoryLabel": "Grand Lobby & Reception",
     "roomId": null,
@@ -968,11 +968,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "24/7 Front Desk Concierge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "reception_reception_4",
-    "title": "Luxury Marble Lobby Entrance",
+    "title": "Lobby & Reception",
     "category": "reception",
     "categoryLabel": "Grand Lobby & Reception",
     "roomId": null,
@@ -982,11 +982,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Luxury Marble Lobby Entrance at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "reception_reception_5",
-    "title": "VIP Waiting Lounge",
+    "title": "Lobby & Reception",
     "category": "reception",
     "categoryLabel": "Grand Lobby & Reception",
     "roomId": null,
@@ -996,11 +996,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "VIP Waiting Lounge at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "reception_reception_6",
-    "title": "Contemporary Hospitality Welcome",
+    "title": "Lobby & Reception",
     "category": "reception",
     "categoryLabel": "Grand Lobby & Reception",
     "roomId": null,
@@ -1010,11 +1010,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Contemporary Hospitality Welcome at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "reception_reception_7",
-    "title": "Reception Hall Architecture",
+    "title": "Lobby & Reception",
     "category": "reception",
     "categoryLabel": "Grand Lobby & Reception",
     "roomId": null,
@@ -1024,11 +1024,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Reception Hall Architecture at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "reception_reception_8",
-    "title": "Distinguished Guest Arrival",
+    "title": "Lobby & Reception",
     "category": "reception",
     "categoryLabel": "Grand Lobby & Reception",
     "roomId": null,
@@ -1038,11 +1038,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Distinguished Guest Arrival at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "outdoor_outdoor_1",
-    "title": "E-Phoenix Hotel Main Facade",
+    "title": "Hotel Grounds & Facade",
     "category": "outdoor",
     "categoryLabel": "Grounds & Facade",
     "roomId": null,
@@ -1052,11 +1052,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "E-Phoenix Hotel Main Facade at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "outdoor_outdoor_2",
-    "title": "Secure Gated Entrance & Landscaping",
+    "title": "Hotel Grounds & Facade",
     "category": "outdoor",
     "categoryLabel": "Grounds & Facade",
     "roomId": null,
@@ -1066,11 +1066,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Secure Gated Entrance & Landscaping at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "outdoor_outdoor_3",
-    "title": "Serene Exterior Architecture",
+    "title": "Hotel Grounds & Facade",
     "category": "outdoor",
     "categoryLabel": "Grounds & Facade",
     "roomId": null,
@@ -1080,11 +1080,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Serene Exterior Architecture at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "outdoor_outdoor_4",
-    "title": "Spacious Guest Parking & Grounds",
+    "title": "Hotel Grounds & Facade",
     "category": "outdoor",
     "categoryLabel": "Grounds & Facade",
     "roomId": null,
@@ -1094,11 +1094,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Spacious Guest Parking & Grounds at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "outdoor_outdoor_5",
-    "title": "Daylight Architectural Perspective",
+    "title": "Hotel Grounds & Facade",
     "category": "outdoor",
     "categoryLabel": "Grounds & Facade",
     "roomId": null,
@@ -1108,11 +1108,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1067,
     "orientation": "landscape",
     "aspectRatio": 1.5,
-    "caption": "Daylight Architectural Perspective at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "outdoor_outdoor_6",
-    "title": "Landscaped Walkway & Gardens",
+    "title": "Hotel Grounds & Facade",
     "category": "outdoor",
     "categoryLabel": "Grounds & Facade",
     "roomId": null,
@@ -1122,11 +1122,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Landscaped Walkway & Gardens at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "outdoor_outdoor_7",
-    "title": "Hotel Exterior Diplomatic Setting",
+    "title": "Hotel Grounds & Facade",
     "category": "outdoor",
     "categoryLabel": "Grounds & Facade",
     "roomId": null,
@@ -1136,11 +1136,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Hotel Exterior Diplomatic Setting at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   },
   {
     "id": "outdoor_outdoor_8",
-    "title": "Distinguished Property Grounds",
+    "title": "Hotel Grounds & Facade",
     "category": "outdoor",
     "categoryLabel": "Grounds & Facade",
     "roomId": null,
@@ -1150,7 +1150,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "height": 1600,
     "orientation": "portrait",
     "aspectRatio": 0.67,
-    "caption": "Distinguished Property Grounds at E-Phoenix Hotel Ilorin."
+    "caption": "E-Phoenix Hotel, Ilorin"
   }
 ];
 
@@ -1171,7 +1171,7 @@ export const MAIN_AND_ANNEX1_PHOTOS: Record<string, GalleryItem[]> = {
   diamond: [
     {
       id: 'diamond_1',
-      title: 'Diamond Suite — Executive Bedroom',
+      title: 'Diamond Suites',
       category: 'rooms',
       categoryLabel: 'Suites & Rooms',
       roomId: 'diamond',
@@ -1181,11 +1181,11 @@ export const MAIN_AND_ANNEX1_PHOTOS: Record<string, GalleryItem[]> = {
       height: 800,
       orientation: 'landscape',
       aspectRatio: 1.5,
-      caption: 'Diamond Suite Master Bedroom with King Size bed at Main GRA Flagship.'
+      caption: 'E-Phoenix Hotel, Ilorin'
     },
     {
       id: 'diamond_2',
-      title: 'Diamond Suite — Signature Lounge',
+      title: 'Diamond Suites',
       category: 'rooms',
       categoryLabel: 'Suites & Rooms',
       roomId: 'diamond',
@@ -1195,11 +1195,11 @@ export const MAIN_AND_ANNEX1_PHOTOS: Record<string, GalleryItem[]> = {
       height: 800,
       orientation: 'landscape',
       aspectRatio: 1.5,
-      caption: 'Executive lounge living area with plush leather armchairs.'
+      caption: 'E-Phoenix Hotel, Ilorin'
     },
     {
       id: 'diamond_3',
-      title: 'Diamond Suite — Grand Lobby',
+      title: 'Diamond Suites',
       category: 'rooms',
       categoryLabel: 'Suites & Rooms',
       roomId: 'diamond',
@@ -1209,13 +1209,13 @@ export const MAIN_AND_ANNEX1_PHOTOS: Record<string, GalleryItem[]> = {
       height: 800,
       orientation: 'landscape',
       aspectRatio: 1.5,
-      caption: 'Diplomatic reception and foyer at Main GRA.'
+      caption: 'E-Phoenix Hotel, Ilorin'
     }
   ],
   legacy: [
     {
       id: 'legacy_1',
-      title: 'Legacy Room — Bedroom',
+      title: 'Legacy Room',
       category: 'rooms',
       categoryLabel: 'Suites & Rooms',
       roomId: 'legacy',
@@ -1225,11 +1225,11 @@ export const MAIN_AND_ANNEX1_PHOTOS: Record<string, GalleryItem[]> = {
       height: 800,
       orientation: 'landscape',
       aspectRatio: 1.5,
-      caption: 'Comfortable Queen Bed and executive workspace.'
+      caption: 'E-Phoenix Hotel, Ilorin'
     },
     {
       id: 'legacy_2',
-      title: 'Legacy Room — Heritage Ambience',
+      title: 'Legacy Room',
       category: 'rooms',
       categoryLabel: 'Suites & Rooms',
       roomId: 'legacy',
@@ -1239,13 +1239,13 @@ export const MAIN_AND_ANNEX1_PHOTOS: Record<string, GalleryItem[]> = {
       height: 800,
       orientation: 'landscape',
       aspectRatio: 1.5,
-      caption: 'Refined hospitality since 1981.'
+      caption: 'E-Phoenix Hotel, Ilorin'
     }
   ],
   chm: [
     {
       id: 'chm_1',
-      title: 'Chairman Suite — Master Suite',
+      title: 'Chairman Suite',
       category: 'rooms',
       categoryLabel: 'Suites & Rooms',
       roomId: 'chm',
@@ -1255,11 +1255,11 @@ export const MAIN_AND_ANNEX1_PHOTOS: Record<string, GalleryItem[]> = {
       height: 800,
       orientation: 'landscape',
       aspectRatio: 1.5,
-      caption: 'Executive VIP Living at Annex 1 Fate.'
+      caption: 'E-Phoenix Hotel, Ilorin'
     },
     {
       id: 'chm_2',
-      title: 'Chairman Suite — Living Area',
+      title: 'Chairman Suite',
       category: 'rooms',
       categoryLabel: 'Suites & Rooms',
       roomId: 'chm',
@@ -1269,7 +1269,7 @@ export const MAIN_AND_ANNEX1_PHOTOS: Record<string, GalleryItem[]> = {
       height: 800,
       orientation: 'landscape',
       aspectRatio: 1.5,
-      caption: 'Private sitting lounge and television.'
+      caption: 'E-Phoenix Hotel, Ilorin'
     }
   ]
 };
