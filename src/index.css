@@ -55,3 +55,13 @@
   box-shadow: 0 16px 36px -4px rgba(78, 30, 122, 0.12), 0 4px 12px -2px rgba(78, 30, 122, 0.06);
 }
 
+/* Hide scrollbar for clean horizontal snap chips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+

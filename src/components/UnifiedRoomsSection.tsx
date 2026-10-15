@@ -17,6 +17,12 @@ import {
   Calendar,
   Eye,
   Images,
+  LayoutGrid,
+  Crown,
+  Building2,
+  Palmtree,
+  SlidersHorizontal,
+  RotateCcw,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -38,10 +44,34 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
   } | null>(null);
 
   const branches = [
-    { key: 'all', label: 'All Accommodations', count: ALL_ROOMS.length },
-    { key: 'main', label: 'Main GRA Flagship', count: ALL_ROOMS.filter((r) => r.branch === 'main').length },
-    { key: 'annex1', label: 'Annex 1 (Tanke / Fate)', count: ALL_ROOMS.filter((r) => r.branch === 'annex1').length },
-    { key: 'annex2', label: 'Annex 2 (Flower Garden GRA)', count: ALL_ROOMS.filter((r) => r.branch === 'annex2').length },
+    {
+      key: 'all',
+      label: 'All Accommodations',
+      shortLabel: 'All Suites',
+      count: ALL_ROOMS.length,
+      icon: LayoutGrid,
+    },
+    {
+      key: 'main',
+      label: 'Main GRA Flagship',
+      shortLabel: 'Main GRA',
+      count: ALL_ROOMS.filter((r) => r.branch === 'main').length,
+      icon: Crown,
+    },
+    {
+      key: 'annex1',
+      label: 'Annex 1 (Tanke / Fate)',
+      shortLabel: 'Annex 1 • Fate',
+      count: ALL_ROOMS.filter((r) => r.branch === 'annex1').length,
+      icon: Building2,
+    },
+    {
+      key: 'annex2',
+      label: 'Annex 2 (Flower Garden)',
+      shortLabel: 'Annex 2 • Garden',
+      count: ALL_ROOMS.filter((r) => r.branch === 'annex2').length,
+      icon: Palmtree,
+    },
   ];
 
   const filteredRooms = ALL_ROOMS.filter((room) => {
@@ -72,7 +102,7 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
     <section id="rooms" className="py-14 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-[#ECE5F3]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 mb-1.5">
             <span className="w-5 h-px bg-[#C49B55]" />
             <span className="text-[11px] font-bold tracking-[0.25em] text-[#87601A] uppercase font-cinzel">
@@ -89,49 +119,106 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
           </p>
         </div>
 
-        {/* Branch Filter Tabs (Zero Page Reloads) */}
-        <div className="flex items-center justify-center flex-wrap gap-2.5 mb-5">
-          {branches.map((b) => (
-            <button
-              key={b.key}
-              onClick={() => setActiveBranch(b.key)}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${
-                activeBranch === b.key
-                  ? 'bg-gradient-to-r from-[#4E1E7A] to-[#381259] text-white shadow-md shadow-purple-950/20 font-bold border border-[#C49B55]/30'
-                  : 'bg-[#FAF7FC] text-[#3D3150] hover:text-[#4E1E7A] hover:bg-[#F3EBF9] border border-[#E5DAEE]'
-              }`}
-            >
-              <span>{b.label}</span>
-              <span className={`ml-1 text-[11px] font-medium ${activeBranch === b.key ? 'text-[#EBD7A9]' : 'text-[#716584]'}`}>
-                ({b.count})
-              </span>
-            </button>
-          ))}
-        </div>
+        {/* Modern Luxury Filter Control System */}
+        <div className="max-w-4xl mx-auto mb-10 sm:mb-14">
+          {/* Property Branch Segmented Control */}
+          <div className="p-1 sm:p-1.5 rounded-full bg-[#FAF5FD] border border-[#E9DFF2] shadow-xs">
+            <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar scroll-smooth snap-x justify-start sm:justify-center p-0.5">
+              {branches.map((b) => {
+                const IconComponent = b.icon;
+                const isActive = activeBranch === b.key;
+                return (
+                  <button
+                    key={b.key}
+                    onClick={() => setActiveBranch(b.key)}
+                    className={`relative px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer shrink-0 snap-center flex items-center gap-2 group ${
+                      isActive
+                        ? 'text-white font-bold'
+                        : 'text-[#4A3D5D] hover:text-[#4E1E7A] hover:bg-white/70'
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeRoomBranchPill"
+                        className="absolute inset-0 bg-gradient-to-r from-[#4E1E7A] to-[#381259] rounded-full shadow-md shadow-purple-950/25 border border-[#C49B55]/40"
+                        transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                      />
+                    )}
+                    <span className="relative z-10 flex items-center gap-1.5">
+                      <IconComponent
+                        className={`w-3.5 h-3.5 transition-colors ${
+                          isActive ? 'text-[#EBD7A9]' : 'text-[#7D6B94] group-hover:text-[#4E1E7A]'
+                        }`}
+                      />
+                      <span className="hidden sm:inline">{b.label}</span>
+                      <span className="inline sm:hidden">{b.shortLabel}</span>
+                    </span>
+                    <span
+                      className={`relative z-10 text-[10.5px] px-1.5 py-0.2 rounded-full font-mono transition-colors ${
+                        isActive
+                          ? 'bg-white/20 text-[#F5E8C8]'
+                          : 'bg-[#EDE4F5] text-[#695B7D] group-hover:bg-[#E2D2EE]'
+                      }`}
+                    >
+                      {b.count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
-        {/* Secondary Price Filter */}
-        <div className="flex items-center justify-center flex-wrap gap-3 mb-10 sm:mb-14 text-xs">
-          <span className="text-[#7A7188] mr-1 text-[11px] font-semibold tracking-wider uppercase font-cinzel">
-            Filter Rate:
-          </span>
-          {[
-            { id: 'all', label: 'All Rates' },
-            { id: 'budget', label: 'Under ₦40,000' },
-            { id: 'executive', label: '₦40,000 – ₦70,000' },
-            { id: 'luxury', label: 'Executive Suites (₦85,000+)' },
-          ].map((pf) => (
-            <button
-              key={pf.id}
-              onClick={() => setPriceFilter(pf.id as any)}
-              className={`px-3 py-1 text-[11px] tracking-wide transition-colors cursor-pointer ${
-                priceFilter === pf.id
-                  ? 'text-[#4E1E7A] border-b-2 border-[#4E1E7A] font-bold'
-                  : 'text-[#6B6275] hover:text-[#1B112B]'
-              }`}
-            >
-              {pf.label}
-            </button>
-          ))}
+          {/* Secondary Rate / Budget Selector Chips */}
+          <div className="mt-3.5 flex items-center justify-center flex-wrap gap-2 text-xs">
+            <span className="inline-flex items-center gap-1.5 text-[10.5px] font-bold tracking-[0.16em] uppercase text-[#7A6D8E] font-cinzel mr-1">
+              <SlidersHorizontal className="w-3 h-3 text-[#C49B55]" />
+              <span>Rate Filter:</span>
+            </span>
+
+            {[
+              { id: 'all', label: 'All Rates' },
+              { id: 'budget', label: 'Under ₦40,000' },
+              { id: 'executive', label: '₦40,000 – ₦70,000' },
+              { id: 'luxury', label: 'Executive Suites (₦85,000+)' },
+            ].map((pf) => {
+              const isSelected = priceFilter === pf.id;
+              return (
+                <button
+                  key={pf.id}
+                  onClick={() => setPriceFilter(pf.id as any)}
+                  className={`px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium tracking-wide transition-all cursor-pointer flex items-center gap-1.5 ${
+                    isSelected
+                      ? 'bg-white text-[#4E1E7A] font-bold shadow-xs border-2 border-[#C49B55] ring-2 ring-[#4E1E7A]/5'
+                      : 'bg-[#FAF7FC] text-[#625575] hover:text-[#1B112B] hover:bg-white border border-[#E7DAEF]'
+                  }`}
+                >
+                  {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#C49B55]" />}
+                  <span>{pf.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Filter Counter & Quick Reset */}
+          {(activeBranch !== 'all' || priceFilter !== 'all') && (
+            <div className="mt-3 flex items-center justify-center gap-2 text-[11px] text-[#716484]">
+              <span>
+                Showing <strong className="text-[#1B112B]">{filteredRooms.length}</strong> of{' '}
+                {ALL_ROOMS.length} suites
+              </span>
+              <span>•</span>
+              <button
+                onClick={() => {
+                  setActiveBranch('all');
+                  setPriceFilter('all');
+                }}
+                className="text-[#4E1E7A] hover:text-[#381259] font-bold underline inline-flex items-center gap-1 cursor-pointer"
+              >
+                <RotateCcw className="w-2.5 h-2.5 text-[#C49B55]" />
+                <span>Reset Filters</span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Room Cards Grid */}
