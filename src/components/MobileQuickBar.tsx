@@ -10,7 +10,7 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenBooking })
   return (
     <aside
       aria-label="Mobile quick actions"
-      className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#ECE5F3] px-4 py-2.5 shadow-2xl flex items-center justify-between gap-2"
+      className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#ECE5F3] px-4 pt-2 pb-[max(0.625rem,env(safe-area-inset-bottom,0px))] shadow-2xl flex items-center justify-between gap-2"
     >
       {/* Call button */}
       <a

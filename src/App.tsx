@@ -15,9 +15,20 @@ export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedRoomToBook, setSelectedRoomToBook] = useState<RealRoom | null>(null);
   const [branchFilter, setBranchFilter] = useState<string>('all');
+  const [bookingPreFill, setBookingPreFill] = useState<{
+    checkIn?: string;
+    checkOut?: string;
+    branch?: 'main' | 'annex1' | 'annex2';
+  } | null>(null);
 
-  const handleOpenBooking = (room?: RealRoom | null) => {
+  const handleOpenBooking = (
+    room?: RealRoom | null,
+    preFillData?: { checkIn?: string; checkOut?: string; branch?: 'main' | 'annex1' | 'annex2' }
+  ) => {
     setSelectedRoomToBook(room || null);
+    if (preFillData) {
+      setBookingPreFill(preFillData);
+    }
     setIsBookingOpen(true);
   };
 
@@ -30,7 +41,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFC] text-[#1F1929] selection:bg-[#4E1E7A] selection:text-white pb-14 md:pb-0 font-sans">
+    <div className="min-h-screen bg-[#FAFAFC] text-[#1F1929] selection:bg-[#4E1E7A] selection:text-white pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] md:pb-0 font-sans">
       {/* Sleek Minimalist Navigation */}
       <MinimalNavbar
         onOpenBooking={() => handleOpenBooking()}
@@ -41,7 +52,7 @@ export default function App() {
         {/* Mobile-First Hero with Instant Property & Availability Finder */}
         <MinimalHero
           onSelectBranchFilter={handleSelectBranchFilter}
-          onOpenBooking={() => handleOpenBooking()}
+          onOpenBooking={(preFill) => handleOpenBooking(null, preFill)}
         />
 
         {/* 6 Essential Hospitality Perks (24/7 Power, Breakfast, Wi-Fi, Security) */}
@@ -75,8 +86,12 @@ export default function App() {
       {/* Frictionless Direct Reservation Modal */}
       <BookingModal
         isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
+        onClose={() => {
+          setIsBookingOpen(false);
+          setBookingPreFill(null);
+        }}
         selectedRoom={selectedRoomToBook}
+        preFill={bookingPreFill}
       />
     </div>
   );

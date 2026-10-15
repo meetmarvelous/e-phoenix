@@ -7,12 +7,18 @@ interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
   selectedRoom?: RealRoom | null;
+  preFill?: {
+    checkIn?: string;
+    checkOut?: string;
+    branch?: 'main' | 'annex1' | 'annex2';
+  } | null;
 }
 
 export const BookingModal: React.FC<BookingModalProps> = ({
   isOpen,
   onClose,
   selectedRoom = null,
+  preFill = null,
 }) => {
   if (!isOpen) return null;
 
@@ -20,7 +26,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
 
   const [branch, setBranch] = useState<'main' | 'annex1' | 'annex2'>(
-    selectedRoom ? selectedRoom.branch : 'main'
+    selectedRoom
+      ? selectedRoom.branch
+      : preFill?.branch || 'main'
   );
 
   const availableRooms = ALL_ROOMS.filter((r) => r.branch === branch);
@@ -29,12 +37,21 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     selectedRoom ? selectedRoom.id : availableRooms[0]?.id || ''
   );
 
-  const [checkIn, setCheckIn] = useState<string>(today);
-  const [checkOut, setCheckOut] = useState<string>(tomorrow);
+  const [checkIn, setCheckIn] = useState<string>(preFill?.checkIn || today);
+  const [checkOut, setCheckOut] = useState<string>(preFill?.checkOut || tomorrow);
   const [guestName, setGuestName] = useState<string>('');
   const [guestPhone, setGuestPhone] = useState<string>('');
   const [guestsCount, setGuestsCount] = useState<number>(1);
   const [copiedBank, setCopiedBank] = useState<boolean>(false);
+
+  // Sync preFill if it changes
+  useEffect(() => {
+    if (preFill) {
+      if (preFill.branch) setBranch(preFill.branch);
+      if (preFill.checkIn) setCheckIn(preFill.checkIn);
+      if (preFill.checkOut) setCheckOut(preFill.checkOut);
+    }
+  }, [preFill]);
 
   // When branch changes, ensure chosen room belongs to this branch
   useEffect(() => {
@@ -81,8 +98,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 • Address: ${currentBranchObj.address}
 • Room: ${currentRoom?.name}
 • Rate: ${formatPrice(currentRoom?.price || 0)} / night
-• Check-in: ${checkIn}
-• Check-out: ${checkOut} (${nights} night${nights > 1 ? 's' : ''})
+• Check-in: ${checkIn} (Standard Check-in: 2:00 PM)
+• Check-out: ${checkOut} (Standard Check-out: 12:00 PM)
+• Duration: ${nights} night${nights > 1 ? 's' : ''}
 • Total Estimate: ${formatPrice(totalPrice)}
 • Guest Name: ${guestName || 'Guest'}
 • Phone: ${guestPhone || 'N/A'}
@@ -91,7 +109,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 Please confirm room availability and payment instructions.`;
 
     const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/2347065023672?text=${encoded}`, '_blank');
+    const cleanPhone = currentBranchObj.phone.replace(/\D/g, '');
+    const intlPhone = cleanPhone.startsWith('0') ? '234' + cleanPhone.slice(1) : cleanPhone;
+    window.open(`https://wa.me/${intlPhone}?text=${encoded}`, '_blank');
   };
 
   return (
@@ -263,6 +283,21 @@ Please confirm room availability and payment instructions.`;
                 {formatPrice(totalPrice)}
               </span>
               <span className="text-[10px] text-[#7A7188] block">Total Rate</span>
+            </div>
+          </div>
+
+          {/* Hotel Policy Primitives */}
+          <div className="grid grid-cols-2 gap-2 text-[10px] text-[#5F586D] bg-[#F9F6FC] p-2.5 rounded-xs border border-[#EBE3F2]">
+            <div>
+              <span className="font-bold text-[#1F1929] block">Standard Check-In:</span>
+              <span>From 2:00 PM (Early check-in on request)</span>
+            </div>
+            <div>
+              <span className="font-bold text-[#1F1929] block">Standard Check-Out:</span>
+              <span>Until 12:00 PM (Noon)</span>
+            </div>
+            <div className="col-span-2 pt-1 border-t border-[#ECE5F3] text-[9.5px]">
+              <span className="font-semibold text-[#4E1E7A]">Payment Options:</span> Direct Bank Transfer, POS Terminal at Front Desk, or Cash.
             </div>
           </div>
 

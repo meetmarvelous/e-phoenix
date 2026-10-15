@@ -168,8 +168,8 @@ export const UnifiedRoomsSection: React.FC<UnifiedRoomsSectionProps> = ({
 
                     {/* Reassurance Label */}
                     <div className="mb-3.5 pb-2.5 border-b border-[#F2EBF7] flex items-center justify-between text-[11px] text-[#6E6280]">
-                      <span className="text-[#C49B55] font-semibold flex items-center gap-1">
-                        <Check className="w-3.5 h-3.5 text-[#C49B55]" />
+                      <span className="text-[#87601A] font-semibold flex items-center gap-1">
+                        <Check className="w-3.5 h-3.5 text-[#87601A]" />
                         <span>Breakfast Included</span>
                       </span>
                       <span>24/7 Power Guaranteed</span>

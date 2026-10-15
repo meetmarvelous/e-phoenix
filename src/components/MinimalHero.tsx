@@ -17,7 +17,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 interface MinimalHeroProps {
   onSelectBranchFilter: (branchId: string) => void;
-  onOpenBooking: () => void;
+  onOpenBooking: (preFill?: { checkIn: string; checkOut: string; branch: 'main' | 'annex1' | 'annex2' }) => void;
 }
 
 const SLIDES = [
@@ -81,7 +81,12 @@ export const MinimalHero: React.FC<MinimalHeroProps> = ({
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     onSelectBranchFilter(selectedBranch);
-    document.getElementById('rooms')?.scrollIntoView({ behavior: 'smooth' });
+    const branchChoice = selectedBranch === 'all' ? 'main' : (selectedBranch as 'main' | 'annex1' | 'annex2');
+    onOpenBooking({
+      checkIn,
+      checkOut,
+      branch: branchChoice,
+    });
   };
 
   const slide = SLIDES[current];
